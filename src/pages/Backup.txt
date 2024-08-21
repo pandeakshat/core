@@ -1,0 +1,37 @@
+
+    <div class="grid sm:grid-cols-4 gap-4">
+      <Card className="shadow-md row-span-12 hover:shadow-xl transition-shadow">
+        <CardHeader>
+          <CardTitle>
+			<AvatarComponent client:load src="https://github.com/withastro.png" alt="Astro" fallbackText="Astro"/>
+				Astro
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          Build faster websites with less client-side JavaScript.
+        </CardContent>
+      </Card>
+      <Card className="shadow-md hover:shadow-xl transition-shadow">
+        <CardHeader>
+          <CardTitle>
+			<AvatarComponent client:load src="https://github.com/shadcn.png" alt="Shadcn" fallbackText="Shadcn"/>
+            Shadcn UI
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          Beautifully designed components built with Radix UI and Tailwind CSS.
+        </CardContent>
+      </Card>
+      <Card className="shadow-md hover:shadow-xl transition-shadow col-span-2">
+        <CardHeader>
+          <CardTitle>
+			<AvatarComponent client:load src="https://github.com/shadcn.png" alt="Shadcn" fallbackText="Shadcn"/>
+            Shadcn UI
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          Beautifully designed components built with Radix UI and Tailwind CSS.
+        </CardContent>
+      </Card>
+    </div>
+  

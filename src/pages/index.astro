@@ -1,0 +1,153 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '@/styles/globals.css';
+
+import { buttonVariants } from "@/components/ui/button";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
+import { AvatarComponent } from "../components/Avatar.tsx";
+import Footer from '@/components/Footer.astro';
+
+---
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<Layout title="Akshat Pande ">
+  <main class="container mx-auto px-4 py-16 max-w-4xl">
+    <div class="grid sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-4 p-4">
+      <Card className="shadow-md hover:shadow-xl transition-shadow lg:col-span-12 sm:col-span-4 md:col-span-6 col-span-4 text-slate-50 row-span-1 bg-slate-950 p-4">
+        <p class="lg:text-2xl md:text-xl sm:text-lg font-extrabold text-center items-center justify-center text-black-50">
+          WRITER  --  STRATEGIST --  ANALYST  --  DEVELOPER  --  ENTREPRENEUR
+        </p>
+      </Card>
+      <Card className="shadow-md hover:shadow-xl text-slate-50 transition-shadow lg:col-span-8 sm:col-span-2 col-span-4 row-span-2 bg-slate-950 p-4">
+        
+        Welcome! <br />
+        I’m a multi-skilled professional with expertise in writing, strategy, data analysis, and development. 
+        <br />
+        I blend creativity with technical acumen to drive impactful solutions. 
+
+        My work is driven by a passion for innovation and results.
+        <br />
+
+        <ion-icon name="heart"></ion-icon>
+
+
+      </Card>
+
+      <Card className="shadow-md hover:shadow-xl text-center transition-shadow lg:col-span-2 sm:col-span-1 col-span-2 row-span-1 bg-slate-200 p-4">
+        <a href="https://resume.pandeakshat.com" target="_blank">
+          <h1 class="text-xl font-bold">
+            The Resume 
+          </h1>     
+        </a>
+      </Card>
+
+      <Card className="shadow-md hover:shadow-xl transition-shadow text-center lg:col-span-2 sm:col-span-1 col-span-2 row-span-2 bg-white-200 p-4">
+        <img src="DP-Instagram.png">
+        <p class="text-2xl">
+        AKSHAT PANDE
+        </p>
+      </Card>
+
+    <Card className="shadow-md hover:shadow-xl text-center bold transition-shadow lg:col-span-2 sm:col-span-1 col-span-2 row-span-1 bg-slate-200 p-4">
+      <a href="https://odyssey.pandeakshat.com" target="_blank">
+        <h1 class="text-xl font-bold">
+          My Odyssey 
+        </h1>     
+      </a>
+    </Card>
+
+
+      <Card className="shadow-md hover:shadow-xl transition-shadow lg:col-span-2 sm:col-span-1 col-span-4 row-span-2 bg-slate-500 p-4">
+        <h1 class="font-bold text-slate-300">Tech Stack: </h1>
+        <ul class="text-center text-slate-100">
+          <li>Python</li>
+          <li>Pandas</li>
+          <li>SQL|noSQL</li>
+          <li>Tableau</li>
+          <li>Django|Flask</li>
+          <li>JavaScript</li>
+          <li>Streamlit</li>
+          <li>GitHub</li>
+        </ul>
+      </Card>
+
+      <Card className="shadow-md hover:shadow-xl transition-shadow lg:col-span-4 sm:col-span-1 col-span-4 row-span-2 bg-slate-500 p-4">
+        <h1 class="font-bold text-slate-300">Currently working on: </h1>
+        <p class="text-slate-100">
+           <a href="/" target="_blank"> <ion-icon name="chevron-forward-outline"> </ion-icon>Status Window   </a> <br />
+           <a href="/" target="_blank"> <ion-icon name="chevron-forward-outline"> </ion-icon>Developer Dashboard    </a>
+        </p>
+
+      </Card>
+
+      <Card className="shadow-md hover:shadow-xl text-center transition-shadow lg:col-span-2 sm:col-span-1 col-span-2 row-span-1 bg-slate-200 p-4">
+        <a href="https://portfolio.pandeakshat.com" target="_blank">
+          <h1 class="text-xl font-bold">
+            Developer Dashboard 
+          </h1>     
+        </a>
+      </Card>
+
+      <Card className="shadow-md hover:shadow-xl text-center transition-shadow lg:col-span-2 sm:col-span-1 col-span-2 row-span-1 bg-slate-200 p-4">
+        <a href="https://write.pandeakshat.com" target="_blank">
+          <h1 class="text-xl font-bold text-center ">
+            Writer's Shelf 
+          </h1>     
+        </a>
+      </Card>
+
+      <Card className="shadow-md hover:shadow-xl text-center transition-shadow lg:col-span-2 sm:col-span-1 col-span-4 row-span-1 bg-slate-200 p-4">
+        <a href="https://odyssey.pandeakshat.com" target="_blank">
+          <h1 class="text-xl font-bold">
+            Status 
+            Window  
+          </h1>     
+        </a>
+      </Card>
+
+      <Card className="shadow-md hover:shadow-xl transition-shadow lg:col-span-4 sm:col-span-1 md:col-span-2 col-span-4 row-span-1 bg-white-0 p-4">
+       <div class="items-center justify-center text-center">
+          <h1 class="text-xl font-bold">
+            Contact 
+          </h1>     
+        
+          <a href="mailto:mail@pandeakshat.com" target="_blank" class="text-blue-700">mail@pandeakshat.com </a>
+
+          <br />
+        <a href="https://github.com/pandeakshat" class={`inline-block px-4 py-2 text-lg font-medium text-white bg-black-100 rounded-lg hover:bg-slate transition ${buttonVariants({ size: 'md' })}`}>
+          <ion-icon name="logo-github"></ion-icon>
+
+        </a>
+        <a href="https://medium.com/@pandeakshat" class={`inline-block px-4 py-2 text-lg font-medium text-white bg-black-100 rounded-lg hover:bg-slate transition ${buttonVariants({ size: 'md' })}`}>
+          <ion-icon name="logo-medium"></ion-icon>
+        </a>
+        <a href="https://linkedin.com/in/pandeakshat" class={`inline-block px-4 py-2 text-lg font-medium text-white bg-black-100 rounded-lg hover:bg-slate transition ${buttonVariants({ size: 'md' })}`}>
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </a>
+        <br />
+
+      </div>
+      </Card>
+
+      <Card className=" shadow-md hover:shadow-xl transition-shadow lg:col-span-2 sm:col-span-4 md:col-span-1 col-span-4 row-span-1 bg-slate-500 p-4">
+        <a href="https://odyssey.pandeakshat.com" target="_blank">
+          <h1 class="font-bold text-slate-200">
+              Employ|Hire
+          </h1>     
+          <p class="text-slate-50">
+            Write <br /> Develop <br /> Strategize <br /> Design 
+          </p>
+        </a>
+      </Card>
+    </div>
+
+    <Card className="mb-12 shadow-lg">
+      <p class="text-center italic">
+        "Believe in yourself. Not in the you who believes in me. Not the me who believes in you. Believe in the you who believes in yourself."
+      </p>
+      <p class="font-bold text-center"> -Tengen Toppa Gurren Lagann</p>
+      </Card>
+
+  </main>
+  <Footer />
+</Layout>
