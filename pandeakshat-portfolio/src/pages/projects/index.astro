@@ -1,0 +1,10 @@
+---
+import BackHomeButton from "../../components/common/BackHomeButton"
+import ProjectsView from "../../components/projects/ProjectsView"
+import BaseLayout from "../../layouts/CenterLayout.astro"
+---
+
+<BaseLayout title="Projects — Akshat Pande">
+  <ProjectsView client:load />
+  <BackHomeButton client:load position="bottom-right" />
+</BaseLayout>

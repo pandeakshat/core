@@ -1,0 +1,10 @@
+---
+import KnowledgeView from "../components/knowledge/KnowledgeView"
+import BaseLayout from "../layouts/CenterLayout.astro"
+import BackHomeButton from "../components/common/BackHomeButton"
+---
+
+<BaseLayout title="Knowledge Hub — Akshat Pande">
+  <KnowledgeView client:load />
+  <BackHomeButton client:load position="bottom-right" />
+</BaseLayout>

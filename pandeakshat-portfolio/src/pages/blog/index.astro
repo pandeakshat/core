@@ -1,0 +1,10 @@
+---
+import BlogView from "../../components/blog/BlogView"
+import BackHomeButton from "../../components/common/BackHomeButton"
+import BaseLayout from "../../layouts/CenterLayout.astro"
+---
+
+<BaseLayout title="Blog — Akshat Pande">
+  <BlogView client:load />
+  <BackHomeButton client:load position="top-left" />
+</BaseLayout>

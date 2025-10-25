@@ -1,0 +1,16 @@
+---
+import LinksView from "../components/links/LinksView"
+import BaseLayout from "../layouts/CenterLayout.astro"
+import hire from "../data/hire"
+import BackHomeButton from "../components/common/BackHomeButton"
+---
+
+<BaseLayout title="Hire — Akshat Pande">
+  <LinksView
+    client:load
+    title="Hire Me"
+    subtitle="Work with me on AI, data, or automation projects."
+    links={hire}
+  />
+  <BackHomeButton client:load position="bottom-right" />
+</BaseLayout>
