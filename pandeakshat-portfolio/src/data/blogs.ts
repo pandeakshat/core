@@ -7,7 +7,7 @@ const blogs = [
     tags: ["Data Science", "ML", "Automation"],
     cover: "/images/blogs/data-intelligence.jpg",
     readTime: "6 min read",
-    medium: "https://medium.com/@pandeakshat/data-intelligence-building-smarter-systems", // ✅ add this
+    medium: "https://medium.com/@pandeakshat/data-intelligence-building-smarter-systems", 
   },
   {
     id: "learning-llm",
@@ -18,7 +18,7 @@ const blogs = [
     tags: ["AI", "LLM", "LangChain"],
     cover: "/images/blogs/learning-llm.jpg",
     readTime: "8 min read",
-    medium: "https://medium.com/@pandeakshat/learning-from-llms-lessons-from-building-ai-tools", // ✅ add this
+    medium: "https://medium.com/@pandeakshat/learning-from-llms-lessons-from-building-ai-tools", 
 
   },
   {
@@ -30,8 +30,7 @@ const blogs = [
     tags: ["Productivity", "Workflows", "Design"],
     cover: "/images/blogs/productivity-systems.jpg",
     readTime: "5 min read",
-    medium: "https://medium.com/@pandeakshat/designing-productive-systems-as-a-data-scientist", // ✅ add this
-
+    medium: "https://medium.com/@pandeakshat/designing-productive-systems-as-a-data-scientist", 
   },
 ]
 
