@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1075829663,
+    "name": "sales-dashboard",
+    "description": null,
+    "url": "https://github.com/pandeakshat/sales-dashboard",
+    "homepage": null,
+    "topics": [],
+    "stars": 1,
+    "forks": 0,
+    "language": "Python",
+    "readme": "# sales-dashboard"
+  },
+  {
+    "id": 1080957703,
+    "name": "data-intelligence",
+    "description": null,
+    "url": "https://github.com/pandeakshat/data-intelligence",
+    "homepage": null,
+    "topics": [],
+    "stars": 1,
+    "forks": 0,
+    "language": null,
+    "readme": "# data-intelligence"
+  },
+  {
+    "id": 984279739,
+    "name": "bse-simulator",
+    "description": "Bristol Stock Exchange - Workshop Simulation",
+    "url": "https://github.com/pandeakshat/bse-simulator",
+    "homepage": null,
+    "topics": [],
+    "stars": 1,
+    "forks": 0,
+    "language": "Jupyter Notebook",
+    "readme": "# BSE Simulator\n\n---\n\n## Overview\n\nThis project presents the **BSE Simulator*, an enhanced and interactive version of the classic Bristol Stock Exchange (BSE). Developed by Dave Cliff, the original BSE simulation is a simple, single-threaded Python tool designed to help students understand Level 2 market data and develop automated trading strategies.\n\nOur platform amplifies BSE's educational impact by providing a **user-friendly, interactive experience** built with Streamlit. It aims to make complex market dynamics accessible, engaging, and extensible for learning and experimentation.\n\n---\n\n## Features\n\nOur interactive platform offers multiple modes to explore market behavior:\n\n* **Interactive Demo:** Jump straight into pre-configured simulations to see different market scenarios in action. This includes:\n    * **Default - ZIP:** Observe market behavior with standard Zero Intelligence Proportional (ZIP) traders.\n    * **Default - Step-by-Step:** Walk through various market conditions and trader configurations incrementally, with detailed explanations at each stage.\n    * **Default + Custom Trader:** Experiment with different individual trader types (ZIP, ZIC, SHVR, GVWY) to understand their unique impact on market sessions.\n* **General Workshop Tool:** (Planned for future development / Workshop use) A more in-depth environment for guided learning and hands-on exercises.\n* **Advanced Simulator:** (Planned for future development) For users who want to dive deeper into custom configurations and advanced analysis.\n* **Community-Driven Platform:** We aim to foster a collaborative environment where users can contribute and expand the simulator's capabilities.\n\n---\n\n## Background on BSE\n\nThe original Bristol Stock Exchange (`BSE.py`) is lauded for its simplicity, transparency, and foundational assumptions (like zero latency), making it an excellent educational tool. This project builds upon that robust foundation, aiming to extend its reach and utility.\n\nFor more information on the original BSE, please refer to its official documentation.\n\n---\n\n## How to Run Locally\n\nTo get this interactive simulation up and running on your machine, follow these simple steps:\n\n1.  **Clone the repository:**\n    ```bash\n    git clone [https://github.com/pandeakshat/bse-simulator.git](https://github.com/pandeakshat/bse-simulator.git)\n    cd bse-simulator\n    ```\n\n2.  **Create a virtual environment (recommended):**\n    ```bash\n    python -m venv venv\n    # On Windows:\n    .\\venv\\Scripts\\activate\n    # On macOS/Linux:\n    source venv/bin/activate\n    ```\n\n3.  **Install dependencies:**\n    ```bash\n    pip install -r requirements.txt\n    # (You'll need a requirements.txt file with: streamlit, matplotlib, numpy, bse)\n    ```\n    * **Note:** The `BSE` library might need to be installed directly if it's not on PyPI: `pip install bse`.\n\n4.  **Create a `data` directory:**\n    The simulation outputs CSV files into a `data/` subdirectory. Make sure this directory exists:\n    ```bash\n    mkdir data\n    ```\n\n5.  **Run the Streamlit application:**\n    Assuming your main Streamlit app file is named `app.py` (or similar, adjust if different):\n    ```bash\n    streamlit run Home.py\n    ```\n    This command will open the application in your web browser.\n\n---\n\n## Project Structure (Example)\n\n\n├── app.py           # Main Streamlit application file (combining Home and Demo)\n\n├── BSE.py           # Original BSE simulation engine (or its equivalent)\n\n├── data/            # Directory for simulation output CSV files\n\n├── requirements.txt # Python dependencies\n\n└── README.md        # This file\n\n\n---\n\n## 🙏 Important Note\n\nI do not own the original BSE code. This project is an enhancement of the original work by Dave Cliff, and it is intended for educational purposes only. Please refer to the original BSE documentation for more information on its usage and limitations.\n\n### Modifications to BSE.PY\nWhile this project largely builds upon the original Bristol Stock Exchange (BSE.py) simulation, a minor functional enhancement has been applied to the BSE.py file included in this repository.\n\nSpecifically, the file dump paths within BSE.py have been modified to automatically save all generated output files (such as blotters, LOB frames, average balances, and transaction tapes) into a dedicated data/ subdirectory. This change helps keep the project directory organized and ensures that all simulation outputs are consistently stored in a single, easily accessible location.\n\nExample of the modification:\nPython\n```bash\n# Original (example)\nbdump = open(session_id+'_blotters.csv', 'w')\n```\n\n```bash\n# Modified\nbdump = open('data/' + session_id+'_blotters.csv', 'w')\n```\n\nThis ensures that all simulation output files are neatly organized in the data/ folder, which you're instructed to create when running the application locally. If you encounter any issues related to file output during the simulation, please ensure you are using the BSE.py file provided within this repository.\n\n---\n\n## 🤝 Contributing\n\nWe welcome contributions to make this platform even better! If you have ideas for new features, improvements, or bug fixes, please feel free to:\n\n* Open an issue to discuss your ideas.\n* Fork the repository and submit a pull request.\n\n---\n\n## 💖 Support the Project\n\nIf you find this project useful and would like to support its development, consider buying me a coffee!\n\n[Donate (PandeAkshat)](https://ko-fi.com/pandeakshat)\n\n---"
+  },
+  {
+    "id": 1079852602,
+    "name": "customer-intelligence",
+    "description": null,
+    "url": "https://github.com/pandeakshat/customer-intelligence",
+    "homepage": null,
+    "topics": [],
+    "stars": 1,
+    "forks": 0,
+    "language": "Astro",
+    "readme": "# customer-intelligence"
+  },
+  {
+    "id": 1065537755,
+    "name": "project-flow",
+    "description": "Project Flow (Under Construction",
+    "url": "https://github.com/pandeakshat/project-flow",
+    "homepage": null,
+    "topics": [],
+    "stars": 1,
+    "forks": 0,
+    "language": null,
+    "readme": "# project-flow\nProject Flow (Under Construction\n"
+  },
+  {
+    "id": 1065537331,
+    "name": "dao",
+    "description": "Decentralized Autonomous Organization - PandeAkshat",
+    "url": "https://github.com/pandeakshat/dao",
+    "homepage": null,
+    "topics": [],
+    "stars": 1,
+    "forks": 0,
+    "language": null,
+    "readme": "# dao\nDecentralized Autonomous Organization - PandeAkshat\n"
+  }
+]
