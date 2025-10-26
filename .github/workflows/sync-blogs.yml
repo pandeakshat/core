@@ -1,0 +1,40 @@
+name: Sync Blogs from Markdown
+
+on:
+  schedule:
+    - cron: "0 3 * * 1" # Every Monday 3 AM
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./pandeakshat-portfolio
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install gray-matter
+
+      - name: Generate blogs.ts from Markdown
+        run: node scripts/sync-blogs.mjs
+
+      - name: Commit updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/data/blogs.ts
+          git commit -m "chore: auto-sync blogs metadata" || echo "No changes"
+          git push
