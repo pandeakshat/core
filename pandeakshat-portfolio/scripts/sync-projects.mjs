@@ -2,55 +2,70 @@ import fs from "fs"
 import path from "path"
 import fetch from "node-fetch"
 
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN
-const reposList = JSON.parse(fs.readFileSync("./data/repo-list.json", "utf8"))
+const REPO_LIST = "./src/data/repo-list.json"
+const OUT_JSON = "./src/data/projects.json"
+const OUT_MD_DIR = "./src/content/projects"
 
-async function getRepoDetails(repoUrl) {
-  const match = repoUrl.match(/github\.com\/([^/]+)\/([^/]+)/)
-  if (!match) return null
-
-  const [, owner, repo] = match
-  const headers = { Authorization: `token ${GITHUB_TOKEN}`, "User-Agent": "project-sync-script" }
-
-  const [repoData, readmeRes] = await Promise.all([
-    fetch(`https://api.github.com/repos/${owner}/${repo}`, { headers }).then(r => r.json()),
-    fetch(`https://api.github.com/repos/${owner}/${repo}/readme`, { headers })
-      .then(r => r.ok ? r.json() : null)
-  ])
-
-  let readme = ""
-  if (readmeRes?.content) {
-    readme = Buffer.from(readmeRes.content, "base64").toString("utf8")
+// Fetch README for a repo
+async function fetchReadme(owner, repo) {
+  const url = `https://api.github.com/repos/${owner}/${repo}/readme`
+  const res = await fetch(url, {
+    headers: { Accept: "application/vnd.github.v3.raw" },
+  })
+  if (!res.ok) {
+    console.warn(`⚠️ Failed to fetch README for ${repo}: ${res.status}`)
+    return null
   }
-
-  return {
-    id: repoData.id,
-    name: repoData.name,
-    description: repoData.description,
-    url: repoData.html_url,
-    homepage: repoData.homepage,
-    topics: repoData.topics || [],
-    stars: repoData.stargazers_count,
-    forks: repoData.forks_count,
-    language: repoData.language,
-    readme
-  }
+  return await res.text()
 }
 
-async function run() {
-  const allData = []
-  for (const repo of reposList) {
-    const data = await getRepoDetails(repo)
-    if (data) allData.push(data)
-    await new Promise(r => setTimeout(r, 1000)) // rate limit safety
-  }
-
-  const outputPath = path.resolve("./src/data/projects.json")
-  fs.writeFileSync(outputPath, JSON.stringify(allData, null, 2))
-  console.log(`✅ Synced ${allData.length} projects → ${outputPath}`)
+// Extract first paragraph for summary
+function extractSummary(markdown) {
+  if (!markdown) return ""
+  const match = markdown
+    .replace(/^# .*\n/, "") // remove first heading
+    .split("\n")
+    .find((line) => line.trim().length > 0)
+  return match ? match.trim().replace(/^> /, "") : ""
 }
 
-run().catch(err => {
-  console.error("❌ Error syncing projects:", err)
-  process.exit(1)
-})
+async function main() {
+  // ensure folders exist
+  fs.mkdirSync("./src/content/projects", { recursive: true })
+
+  const repos = JSON.parse(fs.readFileSync(REPO_LIST, "utf8"))
+  if (!Array.isArray(repos)) {
+    console.error("❌ repo-list.json must be an array of GitHub URLs")
+    process.exit(1)
+  }
+
+  const results = []
+
+  for (const repoUrl of repos) {
+    const [owner, name] = repoUrl.replace("https://github.com/", "").split("/")
+    console.log(`⏳ Fetching ${owner}/${name}...`)
+
+    const readme = await fetchReadme(owner, name)
+
+    if (readme) {
+      // save markdown
+      const mdPath = path.join(OUT_MD_DIR, `${name}.md`)
+      fs.writeFileSync(mdPath, readme, "utf8")
+
+      // build entry
+      results.push({
+        name,
+        url: repoUrl,
+        summary: extractSummary(readme),
+      })
+      console.log(`✅ Saved ${name}.md`)
+    } else {
+      console.warn(`⚠️ Skipped ${name} — no README`)
+    }
+  }
+
+  fs.writeFileSync(OUT_JSON, JSON.stringify(results, null, 2))
+  console.log(`✅ Synced ${results.length} projects → ${path.resolve(OUT_JSON)}`)
+}
+
+main().catch((err) => console.error("❌ Sync failed:", err))

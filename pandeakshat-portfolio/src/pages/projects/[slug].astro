@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../../layouts/CenterLayout.astro";
+import fs from "fs";
+import path from "path";
+import { marked } from "marked";
+import projects from "../../data/projects.json";
+
+// Generate paths for all projects
+export async function getStaticPaths() {
+  return projects.map((p) => ({
+    params: { slug: p.name },
+  }));
+}
+
+const { slug } = Astro.params;
+const filePath = path.resolve("src/content/projects", `${slug}.md`);
+
+let content = "";
+try {
+  content = fs.readFileSync(filePath, "utf-8");
+} catch {
+  content = `# Not Found\n\nProject **${slug}** does not have a markdown file yet.`;
+}
+
+// Convert markdown → HTML using marked
+const html = marked.parse(content);
+---
+
+<BaseLayout title={slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}>
+  <article class="prose prose-neutral dark:prose-invert max-w-3xl mx-auto py-8">
+    <div set:html={html}></div>
+  </article>
+
+  <div class="mt-10 flex justify-center">
+    <a href="/projects" class="rounded-full px-4 py-2 border border-border hover:bg-accent/10 transition">
+      ← Back to Projects
+    </a>
+  </div>
+</BaseLayout>
+
