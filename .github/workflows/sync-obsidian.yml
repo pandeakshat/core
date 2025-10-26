@@ -1,0 +1,39 @@
+name: Sync Obsidian Blog Folder
+
+on:
+  schedule:
+    - cron: "0 3 * * 1" # every Monday 3 AM
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout core repository
+        uses: actions/checkout@v4
+
+      - name: Checkout private Obsidian repo
+        uses: actions/checkout@v4
+        with:
+          repository: pandeakshat/base         
+          token: ${{ secrets.OBSIDIAN_SYNC_TOKEN }}
+          path: obsidian                       
+
+      - name: Sync only Markdown files from /PandeAkshat/Blog
+        run: |
+          mkdir -p pandeakshat-portfolio/src/content/blog
+          find obsidian/Vault/PandeAkshat/Blog -type f -name "*.md" -exec cp {} pandeakshat-portfolio/src/content/blog/ \;
+          echo "✅ Copied Markdown files only."
+
+      - name: Commit synced blog files
+        working-directory: ./pandeakshat-portfolio
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/content/blog/
+          git commit -m "chore: sync blog content from Obsidian (Markdown only)" || echo "No changes to commit"
+          git push
