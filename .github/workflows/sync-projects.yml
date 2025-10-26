@@ -2,8 +2,12 @@ name: Sync Projects Data
 
 on:
   schedule:
-    - cron: "0 3 * * 1" # every Monday at 03:00 UTC
+    - cron: "0 3 * * 1"
   workflow_dispatch:
+
+permissions:
+  contents: write
+
 
 jobs:
   sync:
