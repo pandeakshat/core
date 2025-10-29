@@ -6,23 +6,33 @@ import { loadSlim } from "tsparticles-slim";
 
 export default function BackgroundAnimation() {
   const [enabled, setEnabled] = useState(true);
-  const [mode, setMode] = useState<"gradient" | "mesh">("gradient");
+  const [mode, setMode] = useState<"gradient" | "mesh">("mesh"); // ✅ default = mesh
+  const [ready, setReady] = useState(false); // ✅ ensures React context loaded
 
   useEffect(() => {
-    const storedEnabled = localStorage.getItem("backgroundAnimation");
-    const storedMode = localStorage.getItem("backgroundMode");
-    if (storedEnabled) setEnabled(storedEnabled === "true");
-    if (storedMode) setMode(storedMode as "gradient" | "mesh");
+    // ensure this runs client-side only
+    if (typeof window !== "undefined") {
+      const storedEnabled = localStorage.getItem("backgroundAnimation");
+      const storedMode = localStorage.getItem("backgroundMode");
+      if (storedEnabled) setEnabled(storedEnabled === "true");
+      if (storedMode) setMode(storedMode as "gradient" | "mesh");
+      setReady(true);
+    }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("backgroundAnimation", String(enabled));
-    localStorage.setItem("backgroundMode", mode);
-  }, [enabled, mode]);
+    if (ready) {
+      localStorage.setItem("backgroundAnimation", String(enabled));
+      localStorage.setItem("backgroundMode", mode);
+    }
+  }, [enabled, mode, ready]);
 
   const initParticles = async (engine: any) => {
     await loadSlim(engine);
   };
+
+  // ✅ don’t render anything until hydrated
+  if (!ready) return null;
 
   return (
     <>
@@ -34,11 +44,10 @@ export default function BackgroundAnimation() {
         >
           {enabled ? "✦ Background: On" : "✦ Background: Off"}
         </button>
+
         {enabled && (
           <button
-            onClick={() =>
-              setMode(mode === "gradient" ? "mesh" : "gradient")
-            }
+            onClick={() => setMode(mode === "gradient" ? "mesh" : "gradient")}
             className="bg-card/80 border border-border px-3 py-1.5 text-xs rounded-lg hover:bg-accent/10 transition"
           >
             Mode: {mode === "gradient" ? "Gradient" : "Data Mesh"}
@@ -46,7 +55,7 @@ export default function BackgroundAnimation() {
         )}
       </div>
 
-      {/* Gradient Background */}
+      {/* Gradient */}
       {enabled && mode === "gradient" && (
         <motion.div
           className="fixed inset-0 z-[-1] overflow-hidden"
@@ -69,11 +78,7 @@ export default function BackgroundAnimation() {
                 top: `${Math.random() * 100}%`,
                 left: `${Math.random() * 100}%`,
               }}
-              animate={{
-                x: [0, 60, 0],
-                y: [0, -40, 0],
-                rotate: [0, 360],
-              }}
+              animate={{ x: [0, 60, 0], y: [0, -40, 0], rotate: [0, 360] }}
               transition={{
                 duration: 25 + Math.random() * 15,
                 repeat: Infinity,
@@ -84,19 +89,11 @@ export default function BackgroundAnimation() {
         </motion.div>
       )}
 
-      {/* Mesh Background */}
+      {/* Mesh */}
       {enabled && mode === "mesh" && (
         <div
           id="global-particles-wrapper"
           className="fixed inset-0 w-screen h-screen z-[-1] pointer-events-none"
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100vw",
-            height: "100vh",
-            overflow: "visible",
-          }}
         >
           <Particles
             id="tsparticles"
