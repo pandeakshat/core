@@ -25,9 +25,9 @@ export function BentoCard({
     <Comp
       href={href}
       className={cn(
-        "relative flex flex-col justify-between rounded-2xl border border-border bg-card/70 backdrop-blur-sm shadow-soft p-5",
+        "relative flex flex-col justify-between rounded-2xl border border-border bg-card/40 backdrop-blur-md shadow-soft p-5",
         "transition-all hover:-translate-y-[2px] hover:shadow-md overflow-hidden break-words",
-        "col-span-full lg:col-span-auto", // ✅ full width on mobile
+        "col-span-full lg:col-span-auto",
         href && "hover:bg-foreground/5 cursor-pointer",
         className
       )}

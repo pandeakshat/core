@@ -1,14 +1,12 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
 
-export default function BlogGrid({
-  children,
-  className,
-}: React.PropsWithChildren<{ className?: string }>) {
+export function BlogGrid({ className, children }: React.PropsWithChildren<{ className?: string }>) {
   return (
     <div
       className={cn(
-        "flex flex-col gap-5 w-full max-w-5xl mx-auto",
+        "grid gap-6 w-full max-w-6xl mx-auto",
+        "sm:grid-cols-2 lg:grid-cols-3",
         className
       )}
     >

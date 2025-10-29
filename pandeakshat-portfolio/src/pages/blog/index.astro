@@ -1,10 +1,13 @@
 ---
+import { getCollection } from "astro:content"
 import BlogView from "../../components/blog/BlogView"
 import BackHomeButton from "../../components/common/BackHomeButton"
 import BaseLayout from "../../layouts/CenterLayout.astro"
+
+const posts = await getCollection("blog")
 ---
 
 <BaseLayout title="Blog — Akshat Pande">
-  <BlogView client:load />
+  <BlogView posts={posts} client:load />
   <BackHomeButton client:load position="top-left" />
 </BaseLayout>

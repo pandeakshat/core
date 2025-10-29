@@ -1,46 +1,35 @@
 ---
 import BaseLayout from "../../layouts/CenterLayout.astro"
-import blogs from "../../data/blogs"
+import { getCollection } from "astro:content"
+import { ArrowLeft } from "lucide-react"
 
 export async function getStaticPaths() {
-  return blogs.map((b) => ({
-    params: { slug: b.id },
-    props: { blog: b },
-  }))
+  const posts = await getCollection("blog")
+  return await Promise.all(
+    posts.map(async (post) => {
+      const { Content } = await post.render() // ← Get the compiled markdown component
+      return {
+        params: { slug: post.slug },
+        props: { post, Content },
+      }
+    })
+  )
 }
 
-const { blog } = Astro.props
-const markdownFile = await import(`../../data/blog-md/${blog.id}.md`)
-const { default: Content } = markdownFile
+const { post, Content } = Astro.props
+const { data } = post
 ---
 
-<BaseLayout title={`${blog.title} — Akshat Pande`}>
-  <section class="max-w-3xl mx-auto py-12">
-    <h1 class="text-3xl font-semibold mb-2">{blog.title}</h1>
-    <p class="text-sm text-foreground/60 mb-6">{blog.date} · {blog.readTime}</p>
+<BaseLayout title={data.title}>
+  <a href="/blog" class="inline-flex items-center mb-4 text-sm text-gray-500 hover:text-foreground">
+    <ArrowLeft size={16} class="mr-1" /> Back to Blogs
+  </a>
 
-    <article class="prose prose-neutral dark:prose-invert max-w-none">
-      <Content />
-    </article>
+  <article class="prose prose-neutral dark:prose-invert max-w-3xl mx-auto">
+    <h1>{data.title}</h1>
+    <p class="text-sm text-gray-500 mb-6">{data.date} — {data.readTime}</p>
 
-    <!-- Medium Button -->
-    {blog.medium && (
-      <div class="mt-8 flex justify-center">
-        <a
-          href={blog.medium}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="px-4 py-2 border border-border rounded-full hover:bg-accent/10 transition"
-        >
-          Read on Medium →
-        </a>
-      </div>
-    )}
-
-    <div class="mt-10 flex justify-center">
-      <a href="/blog" class="border rounded-full px-4 py-2 hover:bg-accent/10">
-        ← Back to Blog
-      </a>
-    </div>
-  </section>
+    <!-- ✅ Render compiled markdown -->
+    <Content />
+  </article>
 </BaseLayout>

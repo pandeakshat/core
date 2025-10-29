@@ -1,15 +1,16 @@
 ---
-id: your-slug               # must match filename (no spaces)
-title: "Post Title — Subtitle if needed"
-summary: "One-line summary shown on cards."
-date: "YYYY-MM-DD"
-tags:
-  - TagOne
-  - TagTwo
+title: "Test 2 — Markdown Test Post"
+summary: "Testing Astro blog markdown rendering."
+date: "2025-10-26"
+tags: ["Testing", "Astro"]
 cover: "/images/blogs/example.jpg"
-readTime: "6 min read"
-medium: "https://medium.com/@pandeakshat/example-article"
+readTime: "2 min read"
+medium: "https://medium.com/@pandeakshat/test2"
 ---
+## Subheading
+
+This is a test blog post. Astro should render this markdown content correctly.
+
 
 # Test - 2
 
