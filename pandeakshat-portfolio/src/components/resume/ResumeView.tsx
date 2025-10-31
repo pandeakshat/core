@@ -11,42 +11,49 @@ export default function ResumeView() {
         {/* HEADER */}
         <ResumeCard
           title="Akshat Pande"
-          subtitle="Data Scientist | Cloud & AI Engineer"
+          subtitle="Data Scientist | Analyst"
           className="col-span-full"
         >
-          <p>📍 Pune, India · 📧 mail@pandeakshat.com · 📱 +91-9958091895</p>
+          <p>Noida, UP, India · 📧 mail@pandeakshat.com · 📱 +91-9958091895</p>
           <p>🌐 Portfolio · LinkedIn · GitHub</p>
           <br />
           <p>
             <strong>Profile Summary:</strong> <br />
-            Data Scientist with 3+ years’ experience in analytics and AI product
-            development. Skilled in <strong>Python, SQL</strong>, and{" "}
-            <strong>cloud platforms (AWS, GCP, Azure)</strong> for building data
-            pipelines, machine learning models, and LLM applications.
-            Experienced in automation, dashboarding, and deploying AI workflows
-            that improve efficiency and decision-making.
+            Results-driven Data Analyst skilled in SQL, Python, and BI tools for
+            building automated workflows and dashboards. Experienced in
+            delivering actionable insights that improve decision-making and
+            efficiency. Achieved 37% faster reporting and 20% higher product
+            adoption through data automation and visualization initiatives.
           </p>
         </ResumeCard>
-
 
         {/* EXPERIENCE */}
         <ResumeCard title="Experience" className="col-span-full">
           <p>
-            <strong>Head of Development — Dualchain (London)</strong> <br /> Aug
-            2022 – Present
+            <strong>Head of Development — Dualchain (London, UK)</strong> <br />
+            Aug 2022 – Present · Remote, Part-time
           </p>
           <ul className="list-disc pl-5">
             <li>
-              Built blockchain analytics dashboards improving transaction speed
-              by 15% and adoption by 20%.
+              Managed full lifecycle of decentralized analytics platforms,
+              improving user adoption by 20%.
             </li>
             <li>
-              Automated data pipelines across AWS + MongoDB; created dashboards
-              using Python + SQL + Tableau.
+              Built Python + SQL + Tableau dashboards, increasing stakeholder
+              visibility by 10%.
+            </li>
+            <li>
+              Designed blockchain-based marketplaces, improving transaction
+              efficiency by 15%.
+            </li>
+            <li>
+              Collaborated with cross-functional teams to implement automation
+              and analytics initiatives.
             </li>
           </ul>
+
           <p>
-            <strong>Night Auditor — Sloane Square Hotel (London)</strong> <br />{" "}
+            <strong>Night Auditor — Sloane Square Hotel (London)</strong> <br />
             Nov 2023 – Jun 2025
           </p>
           <ul className="list-disc pl-5">
@@ -54,58 +61,82 @@ export default function ResumeView() {
               Automated nightly reconciliations using Python + Excel, reducing
               processing time by 25–37%.
             </li>
+            <li>
+              Monitored occupancy, revenue, and reconciliation accuracy KPIs.
+            </li>
+            <li>
+              Streamlined transaction and reporting workflows across departments.
+            </li>
           </ul>
+
           <p>
             <strong>
-              Senior Customer Service Advisor — Homes for Students, UK (London)
+              Senior Customer Service Advisor — Homes for Students (London, UK)
             </strong>{" "}
-            <br /> Apr 2022 – Nov 2023
+            <br />
+            Apr 2022 – Nov 2023
           </p>
           <ul className="list-disc pl-5">
             <li>
-              Managed operations for 100+ residents, improving cross-team
-              efficiency by <strong>20%</strong>.
+              Managed operations and data for 100+ residents, improving
+              coordination efficiency by 20%.
             </li>
             <li>
-              Implemented analytics-based KPI tracking for finance and
-              logistics.
+              Developed analytics-based KPI dashboards for finance and logistics
+              optimization.
             </li>
           </ul>
         </ResumeCard>
-        
+
         {/* SKILLS */}
         <ResumeCard title="Skills" className="col-span-6 md:col-span-6">
           <p>
-            <strong>Programming & AI:</strong> Python, TensorFlow, PyTorch,
-            LangChain, Hugging Face
+            <strong>Analytics & BI:</strong> SQL, Tableau, Power BI, Excel (Pivot,
+            VLOOKUP, Macros)
           </p>
           <p>
-            <strong>Cloud & Databases:</strong> AWS, GCP, Azure, MongoDB,
-            Firebase
+            <strong>Programming & Data Science:</strong> Python (Pandas, NumPy,
+            Scikit-learn, TensorFlow), Streamlit
           </p>
           <p>
-            <strong>MLOps & Dev:</strong> FastAPI, Docker, GitHub Actions,
-            Streamlit, Tableau, Power BI
+            <strong>E-Commerce & KPIs:</strong> GMV, Sell-through, Margins,
+            Returns %, Stock Health, Lifecycle Analysis
           </p>
           <p>
-            <strong>Data Engineering:</strong> ETL, Data Warehouses, Spark
-            (basic)
+            <strong>Cloud & Databases:</strong> AWS, MongoDB, Firebase
+          </p>
+          <p>
+            <strong>Tools & Collaboration:</strong> Git, Docker, Jupyter, VS Code
           </p>
         </ResumeCard>
 
         {/* PROJECTS */}
         <ResumeCard title="Projects" className="col-span-6 md:col-span-6">
           <ul className="list-disc pl-5">
-            <li>Customer Analytics Dashboard (Streamlit + SQL)</li>
-            <li>Carbon Chain (Python + Web3 + Streamlit)</li>
-            <li>BSE Simulator (FinTech Workshop App)</li>
+            <li>
+              <strong>Customer Intelligence Hub</strong> — Streamlit · FastAPI ·
+              SQL <br />
+              Built a customer analytics app for churn prediction and automated
+              KPI reporting with integrated data audit modules.
+            </li>
+            <li>
+              <strong>Data Intelligence Hub</strong> — Streamlit · Pandas
+              Profiling · PyCaret <br />
+              Developed a toolkit for dataset validation, cleaning, and
+              transformation into ML-ready formats.
+            </li>
+            <li>
+              <strong>Carbon Chain</strong> — Python · Web3 · Streamlit <br />
+              Built a blockchain tool to visualize and verify carbon offset data
+              with real-time ESG analytics.
+            </li>
           </ul>
         </ResumeCard>
 
         {/* EDUCATION */}
         <ResumeCard title="Education" className="col-span-6 md:col-span-6">
           <p>
-            <strong>M.Sc. Financial Technology with Data Science</strong> —
+            <strong>M.Sc. Financial Technology with Data Science</strong> — 
             University of Bristol (2021–2023)
           </p>
           <p>
@@ -117,8 +148,7 @@ export default function ResumeView() {
             University (2017–2021)
           </p>
           <p>
-            Thesis: Analysis & Indexing of Blockchain Technologies using Carbon
-            Footprint
+            Major Project: Music Genre Classification using AI
           </p>
         </ResumeCard>
 
@@ -127,7 +157,8 @@ export default function ResumeView() {
           <ul className="list-disc pl-5">
             <li>Google Data Analytics (2023)</li>
             <li>AWS Cloud Foundations (2022)</li>
-            <li>Bloomberg Market Concepts + ESG (2025)</li>
+            <li>AI Essentials (2024)</li>
+            <li>Bloomberg BMC + ESG (2025)</li>
             <li>IBM Data Fundamentals (2025)</li>
             <li>NPTEL Social Network Analysis (2021)</li>
           </ul>
@@ -135,16 +166,13 @@ export default function ResumeView() {
 
         {/* INTERESTS */}
         <ResumeCard title="Interests" className="col-span-6 md:col-span-6">
-          <p>
-            Anime · Gaming · Cooking · Podcasts · Poetry · Travel · Digital
-            Trends
-          </p>
+          <p>Anime · Gaming · Cooking · Podcasts · Poetry · Travel · Digital Trends</p>
         </ResumeCard>
       </BentoGrid>
 
       {/* Floating Buttons */}
       <motion.a
-        href="/resume.pdf"
+        href="/Resume.pdf"
         download
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
@@ -154,7 +182,7 @@ export default function ResumeView() {
         <span className="text-sm font-medium">Download PDF</span>
       </motion.a>
 
-      <BackHomeButton client:load position="bottom-right" />
+      <BackHomeButton client:load position="top-left" />
     </div>
   )
 }
