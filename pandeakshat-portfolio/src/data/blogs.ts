@@ -26,8 +26,8 @@ const blogs = [
       "NotionTemplates",
       "SelfImprovement"
     ],
-    "cover": "/images/blogs/realignment-cover.jpg",
-    "readTime": "8 min read",
+    "cover": "/blogs/the-realignment-plan.png",
+    "readTime": "4 min read",
     "medium": "https://medium.com/@pandeakshat/when-was-the-last-time-you-realigned-with-who-you-truly-are"
   }
 ];
