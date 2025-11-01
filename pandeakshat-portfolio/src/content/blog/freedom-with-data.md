@@ -5,7 +5,7 @@ date: 01-11-2025
 tags:
   - Freelancing
   - Data-Science
-cover: /blogs/freedom-with-data.jpg
+cover: /blogs/freedom-with-data.png
 readTime: 10 min read
 medium: https://medium.com/@pandeakshat/realign-data-science-journey-2025
 ---
