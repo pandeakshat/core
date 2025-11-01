@@ -9,8 +9,8 @@ tags:
   - Journaling
   - NotionTemplates
   - SelfImprovement
-cover: /images/blogs/realignment-cover.jpg
-readTime: 8 min read
+cover: /blogs/the-realignment-plan.png
+readTime: 4 min read
 medium: https://medium.com/@pandeakshat/when-was-the-last-time-you-realigned-with-who-you-truly-are
 date: 01-11-2025
 ---
@@ -29,274 +29,84 @@ The purpose of the re-alignment plan is to bring clarity to your existence and g
 Re-alignment takes time, and so do conversations with yourself. Take your time to understand the questions, and fill them with purpose, not as tasks for completion.
 
 ---
-# VISION OF YOUR IDEAL SELF
+## VISION OF YOUR IDEAL SELF
 _Define who you want to become and what success looks like on your terms._
 
-### Who do I want to become?
-_Visualize your ideal self - values, behaviors, energy, mindset._
-
-**Answer:**
-
----
-
-### What does success look like for my new identity?
-_Define it for yourself, not society._
-
-**Answer:**
+- Who do I want to become?  
+- What does success look like for my new identity?  
+- How do I want others to perceive me?  
+- What role do I want to play in the world?  
+- Identity Score (1–10)
 
 ---
 
-### How do I want others to perceive me?
-_Think about how your identity shapes relationships and influence._
-
-**Answer:**
-
----
-
-### What role do I want to play in the world?
-_Purpose, impact, contribution._
-
-**Answer:**
-
----
-
-### Identity Score (1–10):
-_How aligned do you feel today?_
-
-**Answer:**
-
----
-
-# SELF-DISCOVERY & AWARENESS
+## SELF-DISCOVERY & AWARENESS
 _Get clear on what drives, drains, and defines you._
 
-### What gives me energy?
-_List 3 activities or environments that light you up._
-
-**Answer:**
-
----
-
-### What are my top 3 strengths?
-_Add one real-world proof for each._
-
-**Answer:**
+- What gives me energy?  
+- What are my top 3 strengths?  
+- What are my biggest weaknesses or constraints?  
+- What are my 3–5 core values?  
+- What kind of people and environments help me thrive?  
+- What makes me genuinely happy, and am I pursuing it?  
+- Self-Awareness Score (1–10)
 
 ---
 
-### What are my biggest weaknesses or constraints?
-_Which ones am I ready to improve?_
-
-**Answer:**
-
----
-
-### What are my 3–5 core values?
-_Why do these matter to me?_
-
-**Answer:**
-
----
-
-### What kind of people and environments help me thrive?
-
-**Answer:**
-
----
-
-### What makes me genuinely happy, and am I pursuing it?
-
-**Answer:**
-
----
-
-### Self-Awareness Score (1–10):
-
-**Answer:**
-
----
-
-# BREAKING BARRIERS & LETTING GO
+## BREAKING BARRIERS & LETTING GO
 _Release what no longer fits the person you’re becoming._
 
-### What limiting beliefs hold me back?
-_Reframe each one._
-
-**Answer:**
-
----
-
-### What fears are keeping me stuck?
-_How can I start facing them?_
-
-**Answer:**
+- What limiting beliefs hold me back?  
+- What fears are keeping me stuck?  
+- What parts of my old identity should I release?  
+- What distractions or time-wasters block my progress?  
+- How can I reframe past struggles as lessons or strengths?  
+- Letting Go Score (1–10)
 
 ---
 
-### What parts of my old identity should I release?
-_Habits, mindsets, stories, or roles that don’t serve you anymore._
-
-**Answer:**
-
----
-
-### What distractions or time-wasters block my progress?
-
-**Answer:**
-
----
-
-### How can I reframe past struggles as lessons or strengths?
-
-**Answer:**
-
----
-
-### Letting Go Score (1–10):
-
-**Answer:**
-
----
-
-# BUILDING THE NEW IDENTITY
+## BUILDING THE NEW IDENTITY
 _Turn vision into reality through habits, environment, and systems._
 
-### What skills or knowledge do I need to learn?
-
-**Answer:**
-
----
-
-### What daily habits can reinforce my new identity?
-_Keep it small and consistent._
-
-**Answer:**
+- What skills or knowledge do I need to learn?  
+- What daily habits can reinforce my new identity?  
+- How do I stay motivated when things get hard?  
+- What environment and relationships support my evolution?  
+- What am I willing to sacrifice to become this version of me?  
+- Identity-Building Score (1–10)
 
 ---
 
-### How do I stay motivated when things get hard?
-_List specific triggers, routines, or accountability methods._
-
-**Answer:**
-
----
-
-### What environment and relationships support my evolution?
-_What needs to change?_
-
-**Answer:**
-
----
-
-### What am I willing to sacrifice to become this version of me?
-
-**Answer:**
-
----
-
-### Identity-Building Score (1–10):
-
-**Answer:**
-
----
-
-# CLARITY & DIRECTION
+## CLARITY & DIRECTION
 _Turn reflection into a roadmap._
 
-### What do I **not** want in life?
-_Be bold and specific._
+- What do I **not** want in life?  
+- What do I truly want in life?  
 
-**Answer:**
+**Time-Based Goals**  
+- 10-Year Vision  
+- 1-Year Milestones  
+- 3-Month Focus  
 
----
-
-### What do I truly want in life?
-_List your biggest desires and aspirations._
-
-**Answer:**
-
----
-
-## Time-Based Goals
-### 10-Year Vision
-
-**Answer:**
-
-### 1-Year Milestones
-
-**Answer:**
-
-### 3-Month Focus
-
-**Answer:**
+**Skill & Growth Alignment**  
+- What skills do I need next?  
+- What obstacles could derail me?  
+- Direction Score (1–10)
 
 ---
 
-### Skill & Growth Alignment
-
-- What skills do I need next?
-- What obstacles could derail me?
-
-**Answer:**
-
----
-
-### Direction Score (1–10):
-
-**Answer:**
-
----
-
-# SELF-REFLECTION & PROGRESS TRACKING
+## SELF-REFLECTION & PROGRESS TRACKING
 _Measure evolution, not perfection._
 
-### What went well last week?
-
-**Answer:**
-
----
-
-### What didn’t go well, and why?
-
-**Answer:**
-
----
-
-### What am I grateful for?
-
-**Answer:**
-
----
-
-### What are my focus goals this week?
-
-**Answer:**
-
----
-
-### What are my active projects?
-
-**Answer:**
-
----
-
-### How far have I come in this journey?
-
-**Answer:**
-
----
-
-### What’s the gap between how I see myself and how others see me?
-
-**Answer:**
-
----
-
-### How will I measure progress?
-_Define milestones and accountability methods._
-
-**Answer:**
-
+- What went well last week?  
+- What didn’t go well, and why?  
+- What am I grateful for?  
+- What are my focus goals this week?  
+- What are my active projects?  
+- How far have I come in this journey?  
+- What’s the gap between how I see myself and how others see me?  
+- How will I measure progress?
+- 
 ---
 
 # Guideline & Conclusion
@@ -317,6 +127,6 @@ Regards,
 ---
 
 ## 🔗 References
-- [Medium Version]({{medium}})
+- [Medium Version](https://medium.com/@pandeakshat/when-was-the-last-time-you-realigned-with-who-you-truly-are-51dbedc8e52f)
 - [Notion Template](https://akshatpande.notion.site/the-realignment-plan)
 - [Author’s Profile](https://medium.com/@pandeakshat)
