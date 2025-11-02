@@ -85,16 +85,16 @@ export default function HomeBento() {
         href="/projects/featured"
         className="lg:col-span-6 lg:row-span-2 bg-gradient-to-br from-primary/10 to-accent/5"
         title="Featured Project"
-        subtitle="Data Intelligence Hub"
+        subtitle="Customer Intelligence Hub"
         icon={<Sparkles />}
       >
         <img
-          src="/featured-project.jpg"
+          src="/featured-customer.png"
           alt="Featured Project Preview"
           className="rounded-lg w-full h-36 object-cover mb-3"
         />
         <p className="text-sm leading-relaxed">
-          A modular open-source tool that audits and optimizes datasets for machine learning readiness — built with Streamlit, Python, and LangChain.
+          A unified analytics framework designed to transform raw customer data into measurable business intelligence. It integrates data engineering, analytics, and visualization through modular components that deliver end-to-end insight into customer behavior, value, and engagement.
         </p>
       </BentoCard>
 
@@ -102,16 +102,17 @@ export default function HomeBento() {
         href="/blog/featured"
         className="lg:col-span-6 lg:row-span-2 bg-gradient-to-br from-accent/10 to-card/80"
         title="Featured Article"
-        subtitle="Recent Publication"
+        subtitle="The Art of Debugging"
         icon={<NotebookPen />}
       >
         <img
-          src="/featured-article.jpg"
+          src="/featured-debugging.png"
           alt="Featured Article Preview"
           className="rounded-lg w-full h-28 object-cover mb-3"
         />
         <p className="text-sm leading-relaxed">
-          “Rethinking Data Readiness: Building Human-AI Feedback Loops for Smarter Systems.”
+          Debugging isn’t just about fixing code — it’s about understanding yourself.
+This essay explores how the process of identifying, analyzing, and correcting errors mirrors personal growth. Through the psychology, mindset, and art of debugging, it reveals how every failure — in code or life — can teach patience, clarity, and mastery.
         </p>
       </BentoCard>
 

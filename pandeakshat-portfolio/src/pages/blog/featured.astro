@@ -4,6 +4,7 @@ import { getEntryBySlug } from "astro:content"
 import { ArrowLeft } from "lucide-react"
 
 const post = await getEntryBySlug("featured", "blog")
+const { Content, remarkPluginFrontmatter } = await post.render()
 ---
 
 <BaseLayout title={post.data.title}>
@@ -11,7 +12,7 @@ const post = await getEntryBySlug("featured", "blog")
     <h1 class="text-3xl font-bold mb-2">{post.data.title}</h1>
     <p class="text-sm text-foreground/60 mb-8">{post.data.date} · {post.data.readTime}</p>
     {post.data.cover && <img src={post.data.cover} alt={post.data.title} class="rounded-xl mb-6" />}
-    <div innerHTML={post.body} />
+    <Content />
     <a href="/" class="mt-10 inline-flex items-center gap-2 text-accent hover:underline">
       <ArrowLeft size={16}/> Back to Home
     </a>

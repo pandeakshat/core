@@ -4,13 +4,13 @@ const hire = [
   {
     title: "Upwork",
     subtitle: "Freelance Data Science projects",
-    href: "https://www.upwork.com/freelancers/pandeakshat",
+    href: "https://www.upwork.com/freelancers/~0103971d3d957d4ab7",
     icon: "Briefcase",
   },
   {
     title: "Fiverr",
     subtitle: "AI, ML & Streamlit apps",
-    href: "https://www.fiverr.com/pandeakshat",
+    href: "https://www.fiverr.com/iam_akshatpande",
     icon: "Store",
   },
   {
@@ -22,7 +22,7 @@ const hire = [
   {
     title: "Gumroad",
     subtitle: "Digital tools & templates",
-    href: "https://gumroad.com/pandeakshat",
+    href: "https://iamakshatpande.gumroad.com/",
     icon: "Globe",
   },
 ]

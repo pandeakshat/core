@@ -8,7 +8,7 @@ tags:
   - Mindset
 cover: /blogs/the-art-of-debugging.png
 readTime: 10 min read
-medium: https://medium.com/@pandeakshat/can-debugging-teach-us-how-to-live-better
+medium: https://write.pandeakshat.com/can-debugging-teach-us-how-to-live-better-f8e620ce9063
 ---
 *Disclaimer: I am not anywhere near the end of the learning road. My steps still tread through lines of code, seeking the version of myself I’ll someday call a programmer with contentment.*
 

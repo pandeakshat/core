@@ -9,8 +9,8 @@ const connect = [
   },
   {
     title: "X (Twitter)",
-    subtitle: "@pandeakshat",
-    href: "https://twitter.com/pandeakshat",
+    subtitle: "@iam_akshatpande",
+    href: "https://twitter.com/iam_akshatpande",
     icon: "Twitter",
   },
   {
@@ -20,9 +20,9 @@ const connect = [
     icon: "Youtube",
   },
   {
-    title: "Website",
-    subtitle: "pandeakshat.com",
-    href: "https://pandeakshat.com",
+    title: "Github",
+    subtitle: "pandeakshat",
+    href: "https://github.com/pandeakshat",
     icon: "Globe",
   },
 ]

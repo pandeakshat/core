@@ -4,24 +4,39 @@ import { getEntryBySlug } from "astro:content"
 import { ArrowLeft, Github, Play } from "lucide-react"
 
 const project = await getEntryBySlug("featured", "project")
+const { Content } = await project.render()
 ---
 
 <BaseLayout title={project.data.title}>
   <div class="max-w-4xl mx-auto py-10 prose prose-neutral dark:prose-invert">
     <h1 class="text-3xl font-bold mb-2">{project.data.title}</h1>
     <p class="text-sm text-foreground/60 mb-8">{project.data.date}</p>
-    {project.data.cover && <img src={project.data.cover} alt={project.data.title} class="rounded-xl mb-6" />}
-    <div innerHTML={project.body} />
 
-    <div class="mt-10 flex gap-3">
+    {project.data.cover && (
+      <img src={project.data.cover} alt={project.data.title} class="rounded-xl mb-6" />
+    )}
+
+    <Content />
+
+    <div class="mt-10 flex flex-wrap gap-3">
       {project.data.repo && (
-        <a href={project.data.repo} class="flex items-center gap-2 px-4 py-2 border rounded-md hover:bg-accent/10">
-          <Github size={16}/> Repository
+        <a
+          href={project.data.repo}
+          class="flex items-center gap-2 px-4 py-2 border rounded-md hover:bg-accent/10 transition"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Github size={16} /> Repository
         </a>
       )}
       {project.data.demo && (
-        <a href={project.data.demo} class="flex items-center gap-2 px-4 py-2 border rounded-md hover:bg-accent/10">
-          <Play size={16}/> Live Demo
+        <a
+          href={project.data.demo}
+          class="flex items-center gap-2 px-4 py-2 border rounded-md hover:bg-accent/10 transition"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Play size={16} /> Live Demo
         </a>
       )}
     </div>

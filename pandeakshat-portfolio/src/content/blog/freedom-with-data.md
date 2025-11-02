@@ -7,7 +7,7 @@ tags:
   - Data-Science
 cover: /blogs/freedom-with-data.png
 readTime: 10 min read
-medium: https://medium.com/@pandeakshat/realign-data-science-journey-2025
+medium: https://write.pandeakshat.com/how-to-rebuild-a-data-science-career-without-starting-over-3598934c3638
 ---
 **Greetings,**  
 

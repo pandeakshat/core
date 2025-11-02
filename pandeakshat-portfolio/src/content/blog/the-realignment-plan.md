@@ -11,7 +11,7 @@ tags:
   - SelfImprovement
 cover: /blogs/the-realignment-plan.png
 readTime: 4 min read
-medium: https://medium.com/@pandeakshat/when-was-the-last-time-you-realigned-with-who-you-truly-are
+medium: https://write.pandeakshat.com/when-was-the-last-time-you-realigned-with-who-you-truly-are-51dbedc8e52f
 date: 01-11-2025
 ---
 Greetings,
