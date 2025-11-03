@@ -7,8 +7,8 @@ tags:
   - Mindfulness
   - Reflection
   - Journaling
-  - NotionTemplates
   - SelfImprovement
+  - write
 cover: /blogs/the-realignment-plan.png
 readTime: 4 min read
 medium: https://write.pandeakshat.com/when-was-the-last-time-you-realigned-with-who-you-truly-are-51dbedc8e52f
