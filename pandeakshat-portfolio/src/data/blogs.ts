@@ -1,12 +1,13 @@
 const blogs = [
   {
     "id": "freedom-with-data",
-    "title": "How Do You Realign Your Journey When Data Science Keeps Evolving? — A Roadmap for 2025 and Beyond",
+    "title": "How To Rebuild a Data Science Career Without Starting Over?",
     "summary": "A reflective roadmap to reset, rebuild, and realign your data science career with purpose and adaptability in the GenAI era.",
     "date": "01-11-2025",
     "tags": [
       "Freelancing",
-      "Data-Science"
+      "Data-Science",
+      "write"
     ],
     "cover": "/blogs/freedom-with-data.png",
     "readTime": "10 min read",
@@ -20,7 +21,8 @@ const blogs = [
     "tags": [
       "Programming",
       "Learning",
-      "Mindset"
+      "Mindset",
+      "write"
     ],
     "cover": "/blogs/the-art-of-debugging.png",
     "readTime": "10 min read",
@@ -37,8 +39,8 @@ const blogs = [
       "Mindfulness",
       "Reflection",
       "Journaling",
-      "NotionTemplates",
-      "SelfImprovement"
+      "SelfImprovement",
+      "write"
     ],
     "cover": "/blogs/the-realignment-plan.png",
     "readTime": "4 min read",
