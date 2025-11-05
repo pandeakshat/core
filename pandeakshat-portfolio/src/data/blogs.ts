@@ -14,6 +14,20 @@ const blogs = [
     "medium": "https://write.pandeakshat.com/how-to-rebuild-a-data-science-career-without-starting-over-3598934c3638"
   },
   {
+    "id": "solo-social-leveling-system",
+    "title": "Solo-Social Leveling System — Designing Frameworks That Turn Reflection Into Evolution",
+    "summary": "A modular system to transform reflection into consistent, evolutionary growth.",
+    "date": "05-11-2025",
+    "tags": [
+      "Optimization",
+      "PersonalGrowth",
+      "SelfImprovement"
+    ],
+    "cover": "/blogs/solo-social-leveling.png",
+    "readTime": "9 min read",
+    "medium": "https://write.pandeakshat.com/solo-social-leveling-system"
+  },
+  {
     "id": "the-art-of-debugging",
     "title": "Can Debugging Teach Us How to Live Better? — Lessons from the Code and the Self",
     "summary": "A reflection on programming, mistakes, and the psychology of growth — exploring how debugging code teaches us to debug life.",
