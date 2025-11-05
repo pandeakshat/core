@@ -6,7 +6,7 @@ tags:
   - Optimization
   - PersonalGrowth
   - SelfImprovement
-cover: /blogs/solo-social-leveling.png
+cover: /blogs/solo-social-leveling-system.png
 readTime: 9 min read
 medium: https://write.pandeakshat.com/solo-social-leveling-system
 ---
