@@ -1,0 +1,63 @@
+name: Send Newsletter (Manual / Scheduled)
+
+on:
+  schedule:
+    - cron: '0 2 * * 1'   # Monday 10:00 SGT (02:00 UTC) — adjust if you prefer another day
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  send-newsletter:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: automation/newsletter
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pyyaml markdown requests
+
+      - name: Find latest newsletter
+        id: find
+        run: |
+          python3 scripts/find_latest.py > latest.txt || (cat latest.txt || true; exit 1)
+          latest="$(cat latest.txt)"
+          echo "FILE=${latest}" >> $GITHUB_OUTPUT
+
+      - name: Create MailerLite draft (if file found)
+        if: steps.find.outputs.FILE != ''
+        env:
+          MAILERLITE_API_KEY: ${{ secrets.MAILERLITE_API_KEY }}
+        run: |
+          python3 scripts/publish_to_esp.py "${{ steps.find.outputs.FILE }}"
+
+      - name: Append published.log (newsletter)
+        if: success() && steps.find.outputs.FILE != ''
+        run: |
+          F="$(basename "${{ steps.find.outputs.FILE }}")"
+          echo "$F | $(date -u +%FT%TZ) | published_to: newsletter" >> published.log
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add published.log || true
+          git commit -m "log: newsletter published $F" || echo "No changes to commit"
+          git push || echo "Push failed (check token permissions)"
+
+      - name: Create issue on failure
+        if: failure()
+        uses: peter-evans/create-issue-from-file@v4
+        with:
+          title: "Send Newsletter workflow failed — ${{ github.run_id }}"
+          content: |
+            Send Newsletter workflow failed. Check Actions logs for details.
