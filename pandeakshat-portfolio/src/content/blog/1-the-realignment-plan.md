@@ -2,13 +2,8 @@
 title: When Was the Last Time You Realigned With Who You Truly Are?
 summary: A reflective questionnaire to help you pause, reset, and realign with purpose and understanding.
 tags:
-  - SelfDiscovery
-  - PersonalGrowth
-  - Mindfulness
-  - Reflection
-  - Journaling
-  - SelfImprovement
   - write
+  - portfolio
 cover: /blogs/the-realignment-plan.png
 readTime: 4 min read
 medium: https://write.pandeakshat.com/when-was-the-last-time-you-realigned-with-who-you-truly-are-51dbedc8e52f

@@ -3,10 +3,8 @@ title: Can Debugging Teach Us How to Live Better? — Lessons from the Code and 
 summary: A reflection on programming, mistakes, and the psychology of growth — exploring how debugging code teaches us to debug life.
 date: 01-11-2025
 tags:
-  - Programming
-  - Learning
-  - Mindset
   - write
+  - portfolio
 cover: /blogs/the-art-of-debugging.png
 readTime: 10 min read
 medium: https://write.pandeakshat.com/can-debugging-teach-us-how-to-live-better-f8e620ce9063

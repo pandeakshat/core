@@ -3,9 +3,8 @@ title: Solo-Social Leveling System — Designing Frameworks That Turn Reflection
 summary: A modular system to transform reflection into consistent, evolutionary growth.
 date: 05-11-2025
 tags:
-  - Optimization
-  - PersonalGrowth
-  - SelfImprovement
+  - write
+  - portfolio
 cover: /blogs/solo-social-leveling-system.png
 readTime: 9 min read
 medium: https://write.pandeakshat.com/solo-social-leveling-system
