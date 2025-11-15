@@ -39,7 +39,7 @@ jobs:
       - name: Sync weekly newsletters
         run: |
           mkdir -p automation/newsletter/newsletters
-          find obsidian/Projects/PandeAkshat/Write/Newsletter/newsletters -type f -name "newsletter-*.md" \
+          find obsidian/Projects/PandeAkshat/Write/Newsletter -type f -name "newsletter-*.md" \
             -exec cp -u {} automation/newsletter/newsletters/ \;
           echo "✅ Synced newsletter files."
 
