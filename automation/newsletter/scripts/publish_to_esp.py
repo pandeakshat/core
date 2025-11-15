@@ -9,9 +9,7 @@ DEFAULT_FROM_NAME = "Akshat Pande"        # CHANGE THIS
 DEFAULT_GROUP_ID = "171126496252921482"                     # CHANGE THIS
 
 
-# --- CONFIGURATION ---
-# These will use GitHub Secrets first, then fallbacks above
-API_KEY = os.getenv("MAILERLITE_API_KEY")  # ⚠️ NEVER hardcode this!
+API_KEY = os.getenv("MAILERLITE_API_KEY")
 GROUP_ID = os.getenv("MAILERLITE_GROUP_ID", DEFAULT_GROUP_ID)
 FROM_EMAIL = os.getenv("MAILERLITE_FROM_EMAIL", DEFAULT_FROM_EMAIL)
 FROM_NAME = os.getenv("MAILERLITE_FROM_NAME", DEFAULT_FROM_NAME).strip()
@@ -28,28 +26,10 @@ def render_html(md_path):
     with open(md_path, encoding="utf8") as f:
         md = f.read()
     
-    # Process title with shell-style date expansion if present
+    # Process frontmatter if present
     if md.startswith("---"):
         parts = md.split("---", 2)
-        if len(parts) >= 3:
-            frontmatter = yaml.safe_load(parts[1])
-            body = parts[2]
-            # Expand $(date ...) in title if it exists
-            if frontmatter and 'title' in frontmatter:
-                import subprocess
-                title = frontmatter['title']
-                if '$(date' in title:
-                    expanded_date = subprocess.run(['date', '+%Y-%m-%d'], 
-                                                 capture_output=True, text=True).stdout.strip()
-                    frontmatter['title'] = title.replace('$(date +%F)', expanded_date)
-                    # Reconstruct markdown with updated frontmatter
-                    new_frontmatter = yaml.dump(frontmatter, default_flow_style=False)
-                    md = f"---\n{new_frontmatter}---\n{body}"
-                    # Re-process for body
-                    parts = md.split("---", 2)
-                    body = parts[2] if len(parts) >= 3 else md
-        else:
-            body = md
+        body = parts[2] if len(parts) >= 3 else md
     else:
         body = md
         
@@ -72,33 +52,23 @@ def read_meta(md_path):
     return {}
 
 def create_campaign(title, from_name, from_email, group_id):
-    # ✅ CORRECT payload for NEW MailerLite API
+    # ✅ FINAL WORKING STRUCTURE for new API
     payload = {
         "name": title,
         "type": "regular",
-        "emails": [  # <-- This is REQUIRED for regular campaigns
-            {
-                "subject": title,
-                "from": {
-                    "email": from_email,
-                    "name": from_name
-                },
-                "to": [
-                    {
-                        "id": str(group_id),
-                        "type": "group"
-                    }
-                ]
-            }
+        "emails": [
+            [
+                {
+                    "from_name": from_name,
+                    "from": from_email,  # String email
+                    "subject": title,
+                    "to": str(group_id)  # String group ID
+                }
+            ]
         ]
     }
     
-    print(f"DEBUG: Sending payload to {BASE}/campaigns", file=sys.stderr)
-    print(f"DEBUG: Payload: {json.dumps(payload, indent=2, ensure_ascii=False)}", file=sys.stderr)
-    
     response = requests.post(f"{BASE}/campaigns", json=payload, headers=HEADERS)
-    print(f"DEBUG: Response {response.status_code}: {response.text}", file=sys.stderr)
-    
     if response.status_code >= 400:
         print("CREATE_CAMPAIGN_ERROR", response.status_code, response.text, file=sys.stderr)
         response.raise_for_status()
@@ -141,14 +111,6 @@ def main():
     title = meta.get("title", "Newsletter").strip()
     from_name = meta.get("from_name", FROM_NAME).strip()
     from_email = meta.get("from_email", FROM_EMAIL).strip()
-    
-    # Final validation of values from frontmatter
-    if "@" not in from_email:
-        print(f"❌ INVALID_FROM_EMAIL in markdown: {from_email}", file=sys.stderr)
-        sys.exit(6)
-    if not from_name or len(from_name) < 2:
-        print(f"❌ INVALID_FROM_NAME in markdown: {from_name}", file=sys.stderr)
-        sys.exit(7)
 
     html = render_html(path)
     camp = create_campaign(title, from_name, from_email, GROUP_ID)
@@ -157,9 +119,9 @@ def main():
     camp_id = camp.get("id") or camp.get("data", {}).get("id")
     if not camp_id:
         print(f"❌ NO_CAMPAIGN_ID_RETURNED: {camp}", file=sys.stderr)
-        sys.exit(8)
+        sys.exit(6)
 
-    print(f"✅ Campaign created successfully: ID {camp_id}", file=sys.stderr)
+    print(f"✅ Campaign created: ID {camp_id}", file=sys.stderr)
     upload_resp = upload_content(camp_id, html)
     print(json.dumps({"campaign": camp, "upload": upload_resp}))
 
