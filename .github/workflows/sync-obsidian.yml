@@ -26,7 +26,7 @@ jobs:
       - name: Sync only Markdown files from /PandeAkshat/Blog
         run: |
           mkdir -p pandeakshat-portfolio/src/content/blog
-          find obsidian/PandeAkshat/Blog -type f -name "*.md" -exec cp {} pandeakshat-portfolio/src/content/blog/ \;
+          find obsidian/Projects/PandeAkshat/Blog -type f -name "*.md" -exec cp {} pandeakshat-portfolio/src/content/blog/ \;
           echo "✅ Copied Markdown files only."
 
       - name: Commit synced blog files
