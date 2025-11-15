@@ -36,7 +36,67 @@ jobs:
           latest="$(cat latest.txt)"
           echo "FILE=${latest}" >> $GITHUB_OUTPUT
 
-      - name: Create MailerLite draft (if file found)
+      - name: Validate environment variables
+        if: steps.find.outputs.FILE != ''
+        env:
+          MAILERLITE_API_KEY: ${{ secrets.MAILERLITE_API_KEY }}
+          MAILERLITE_GROUP_ID: ${{ secrets.MAILERLITE_GROUP_ID }}
+          MAILERLITE_FROM_EMAIL: ${{ secrets.MAILERLITE_FROM_EMAIL }}
+          MAILERLITE_FROM_NAME: ${{ secrets.MAILERLITE_FROM_NAME }}
+        run: |
+          echo "=== Environment Variable Validation ==="
+          errors=0
+
+          # Validate API Key
+          if [[ -z "$MAILERLITE_API_KEY" || "$MAILERLITE_API_KEY" == "0" ]]; then
+            echo "::error::MAILERLITE_API_KEY is missing or placeholder '0'"
+            errors=$((errors + 1))
+          else
+            echo "✅ MAILERLITE_API_KEY: Set (length: ${#MAILERLITE_API_KEY})"
+          fi
+
+          # Validate Group ID
+          if [[ -z "$MAILERLITE_GROUP_ID" || "$MAILERLITE_GROUP_ID" == "0" ]]; then
+            echo "::error::MAILERLITE_GROUP_ID is missing or placeholder '0'"
+            errors=$((errors + 1))
+          else
+            echo "✅ MAILERLITE_GROUP_ID: Set (value: $MAILERLITE_GROUP_ID)"
+          fi
+
+          # Validate From Email
+          if [[ -z "$MAILERLITE_FROM_EMAIL" || "$MAILERLITE_FROM_EMAIL" == "0" ]]; then
+            echo "::error::MAILERLITE_FROM_EMAIL is missing or placeholder '0'"
+            errors=$((errors + 1))
+          elif [[ ! "$MAILERLITE_FROM_EMAIL" =~ ^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$ ]]; then
+            echo "::error::MAILERLITE_FROM_EMAIL has invalid format: $MAILERLITE_FROM_EMAIL"
+            errors=$((errors + 1))
+          else
+            echo "✅ MAILERLITE_FROM_EMAIL: $MAILERLITE_FROM_EMAIL"
+          fi
+
+          # Validate From Name
+          if [[ -z "$MAILERLITE_FROM_NAME" || "$MAILERLITE_FROM_NAME" == "0" ]]; then
+            echo "::error::MAILERLITE_FROM_NAME is missing or placeholder '0'"
+            errors=$((errors + 1))
+          elif [[ ${#MAILERLITE_FROM_NAME} -lt 2 ]]; then
+            echo "::error::MAILERLITE_FROM_NAME is too short: '$MAILERLITE_FROM_NAME'"
+            errors=$((errors + 1))
+          else
+            echo "✅ MAILERLITE_FROM_NAME: $MAILERLITE_FROM_NAME"
+          fi
+
+          if [[ $errors -gt 0 ]]; then
+            echo ""
+            echo "❌ Validation failed with $errors error(s)"
+            echo "→ Go to Settings → Secrets and variables → Actions"
+            echo "→ Update all MAILERLITE_* secrets with real values"
+            exit 1
+          fi
+
+          echo ""
+          echo "✅ All environment variables are properly configured"
+
+      - name: Create MailerLite draft
         if: steps.find.outputs.FILE != ''
         env:
           MAILERLITE_API_KEY: ${{ secrets.MAILERLITE_API_KEY }}
@@ -45,8 +105,8 @@ jobs:
           MAILERLITE_FROM_NAME: ${{ secrets.MAILERLITE_FROM_NAME }}
         run: |
           python3 scripts/publish_to_esp.py "${{ steps.find.outputs.FILE }}"
-          
-      - name: Append published.log (newsletter)
+
+      - name: Append published.log
         if: success() && steps.find.outputs.FILE != ''
         run: |
           F="$(basename "${{ steps.find.outputs.FILE }}")"
@@ -64,3 +124,4 @@ jobs:
           title: "Send Newsletter workflow failed — ${{ github.run_id }}"
           content: |
             Send Newsletter workflow failed. Check Actions logs for details.
+            **Note:** If validation failed, update your GitHub Secrets with real values (not "0").
