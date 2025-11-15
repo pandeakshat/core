@@ -4,7 +4,7 @@ import os, sys, markdown, requests, yaml, json
 API_KEY = os.getenv("MAILERLITE_API_KEY")
 GROUP_ID = os.getenv("MAILERLITE_GROUP_ID")
 FROM_EMAIL = os.getenv("MAILERLITE_FROM_EMAIL")
-FROM_NAME = os.getenv("MAILERLITE_FROM_NAME", "Your Name")
+FROM_NAME = os.getenv("MAILERLITE_FROM_NAME", "").strip()
 BASE = "https://api.mailerlite.com/api/v2"
 HEADERS = {"X-MailerLite-ApiKey": API_KEY, "Content-Type": "application/json", "Accept":"application/json"}
 
@@ -30,7 +30,7 @@ def read_meta(md_path):
     return {}
 
 def create_campaign(title, from_name, from_email, group_id):
-    # MailerLite requires 'name' and an 'emails' entry for regular campaigns
+    # include emails[0].subject which MailerLite examples use
     payload = {
         "name": title,
         "subject": title,
@@ -38,6 +38,7 @@ def create_campaign(title, from_name, from_email, group_id):
         "groups": [int(group_id)],
         "emails": [
             {
+                "subject": title,
                 "from_name": from_name,
                 "from": from_email
             }
@@ -66,25 +67,30 @@ def main():
     if not GROUP_ID:
         print("Missing MAILERLITE_GROUP_ID", file=sys.stderr); sys.exit(3)
     if not FROM_EMAIL:
-        print("Missing MAILERLITE_FROM_EMAIL", file=sys.stderr); sys.exit(4)
+        print("Missing MAILERLITE_FROM_EMAIL (set as repo secret)", file=sys.stderr); sys.exit(4)
+    if not FROM_NAME:
+        print("Missing MAILERLITE_FROM_NAME (set as repo secret)", file=sys.stderr); sys.exit(5)
 
     path = sys.argv[1]
     meta = read_meta(path)
     title = meta.get("title", "Newsletter")
-    from_name = meta.get("from_name", FROM_NAME)
-    from_email = meta.get("from_email", FROM_EMAIL)
+    # allow per-post override if present in frontmatter
+    from_name = meta.get("from_name", FROM_NAME).strip()
+    from_email = meta.get("from_email", FROM_EMAIL).strip()
 
-    # basic validation: simple email format check
+    # sanity checks
     if "@" not in from_email or "." not in from_email.split("@")[-1]:
-        print("INVALID_FROM_EMAIL", from_email, file=sys.stderr); sys.exit(5)
+        print("INVALID_FROM_EMAIL", from_email, file=sys.stderr); sys.exit(6)
+    if not from_name:
+        print("INVALID_FROM_NAME", from_name, file=sys.stderr); sys.exit(7)
 
     html = render_html(path)
 
     camp = create_campaign(title, from_name, from_email, GROUP_ID)
-    # campaign id location may vary
+    # many possible shapes — try common keys
     camp_id = camp.get("id") or camp.get("data", {}).get("id") or (camp.get("campaign") or {}).get("id")
     if not camp_id:
-        print("NO_CAMPAIGN_ID_RETURNED", camp, file=sys.stderr); sys.exit(6)
+        print("NO_CAMPAIGN_ID_RETURNED", camp, file=sys.stderr); sys.exit(8)
 
     upload_resp = upload_content(camp_id, html)
     print(json.dumps({"campaign": camp, "upload": upload_resp}))
