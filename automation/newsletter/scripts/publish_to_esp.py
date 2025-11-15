@@ -30,17 +30,19 @@ def read_meta(md_path):
     return {}
 
 def create_campaign(title, from_name, from_email, group_id):
-    # include emails[0].subject which MailerLite examples use
     payload = {
         "name": title,
         "subject": title,
         "type": "regular",
         "groups": [int(group_id)],
+        # top-level from (some accounts expect this)
+        "from": {"name": from_name, "email": from_email},
+        # emails array — ensure emails[0].from is an object
         "emails": [
             {
                 "subject": title,
                 "from_name": from_name,
-                "from": from_email
+                "from": {"email": from_email, "name": from_name}
             }
         ]
     }
@@ -74,7 +76,6 @@ def main():
     path = sys.argv[1]
     meta = read_meta(path)
     title = meta.get("title", "Newsletter")
-    # allow per-post override if present in frontmatter
     from_name = meta.get("from_name", FROM_NAME).strip()
     from_email = meta.get("from_email", FROM_EMAIL).strip()
 
@@ -87,7 +88,6 @@ def main():
     html = render_html(path)
 
     camp = create_campaign(title, from_name, from_email, GROUP_ID)
-    # many possible shapes — try common keys
     camp_id = camp.get("id") or camp.get("data", {}).get("id") or (camp.get("campaign") or {}).get("id")
     if not camp_id:
         print("NO_CAMPAIGN_ID_RETURNED", camp, file=sys.stderr); sys.exit(8)
