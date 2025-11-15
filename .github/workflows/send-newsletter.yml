@@ -2,7 +2,7 @@ name: Send Newsletter (Manual / Scheduled)
 
 on:
   schedule:
-    - cron: '0 2 * * 1'
+    - cron: '0 2 * * 1'   # Monday 10:00 SGT (02:00 UTC)
   workflow_dispatch:
 
 permissions:
@@ -36,51 +36,28 @@ jobs:
           latest="$(cat latest.txt)"
           echo "FILE=${latest}" >> $GITHUB_OUTPUT
 
-      - name: Validate environment variables
+      - name: Validate environment variables (Buttondown)
         if: steps.find.outputs.FILE != ''
         env:
-          MAILERLITE_API_KEY: ${{ secrets.MAILERLITE_API_KEY }}
-          MAILERLITE_GROUP_ID: ${{ secrets.MAILERLITE_GROUP_ID }}
-          MAILERLITE_FROM_EMAIL: ${{ secrets.MAILERLITE_FROM_EMAIL }}
-          MAILERLITE_FROM_NAME: ${{ secrets.MAILERLITE_FROM_NAME }}
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+          BUTTONDOWN_SUBJECT_PREFIX: ${{ secrets.BUTTONDOWN_SUBJECT_PREFIX }}
+          BUTTONDOWN_DEFAULT_STATUS: ${{ secrets.BUTTONDOWN_DEFAULT_STATUS }}
+          BUTTONDOWN_DEFAULT_FOOTER: ${{ secrets.BUTTONDOWN_DEFAULT_FOOTER }}
         run: |
-          echo "=== Environment Variable Validation ==="
+          echo "=== Buttondown env check ==="
           errors=0
-
-          # Check API Key format (new API keys are ~1000 chars)
-          if [[ -z "$MAILERLITE_API_KEY" ]]; then
-            echo "::error::MAILERLITE_API_KEY is empty"
+          if [[ -z "$BUTTONDOWN_API_KEY" ]]; then
+            echo "::error::BUTTONDOWN_API_KEY is empty"
             errors=$((errors + 1))
-          elif [[ ${#MAILERLITE_API_KEY} -lt 50 ]]; then
-            echo "::warning::API key seems short (${#MAILERLITE_API_KEY} chars). Are you using the new API key?"
           else
-            echo "✅ MAILERLITE_API_KEY: Set (${#MAILERLITE_API_KEY} chars)"
+            echo "✅ BUTTONDOWN_API_KEY: Set (length: ${#BUTTONDOWN_API_KEY})"
           fi
 
-          # Check Group ID is numeric
-          if [[ -z "$MAILERLITE_GROUP_ID" || "$MAILERLITE_GROUP_ID" == "0" ]]; then
-            echo "::error::MAILERLITE_GROUP_ID is empty or placeholder"
-            errors=$((errors + 1))
-          elif ! [[ "$MAILERLITE_GROUP_ID" =~ ^[0-9]+$ ]]; then
-            echo "::error::MAILERLITE_GROUP_ID must be numeric: $MAILERLITE_GROUP_ID"
-            errors=$((errors + 1))
+          # optional hints
+          if [[ -z "$BUTTONDOWN_DEFAULT_STATUS" ]]; then
+            echo "::warning::BUTTONDOWN_DEFAULT_STATUS not set — defaulting to 'draft'"
           else
-            echo "✅ MAILERLITE_GROUP_ID: $MAILERLITE_GROUP_ID"
-          fi
-
-          # Show email and name for debugging (not masked here)
-          if [[ -z "$MAILERLITE_FROM_EMAIL" ]]; then
-            echo "::error::MAILERLITE_FROM_EMAIL is empty"
-            errors=$((errors + 1))
-          else
-            echo "✅ MAILERLITE_FROM_EMAIL: $MAILERLITE_FROM_EMAIL"
-          fi
-
-          if [[ -z "$MAILERLITE_FROM_NAME" ]]; then
-            echo "::error::MAILERLITE_FROM_NAME is empty"
-            errors=$((errors + 1))
-          else
-            echo "✅ MAILERLITE_FROM_NAME: $MAILERLITE_FROM_NAME"
+            echo "✅ BUTTONDOWN_DEFAULT_STATUS: $BUTTONDOWN_DEFAULT_STATUS"
           fi
 
           if [[ $errors -gt 0 ]]; then
@@ -91,13 +68,13 @@ jobs:
           echo ""
           echo "✅ All environment variables are properly configured"
 
-      - name: Create MailerLite draft
+      - name: Create Buttondown draft
         if: steps.find.outputs.FILE != ''
         env:
-          MAILERLITE_API_KEY: ${{ secrets.MAILERLITE_API_KEY }}
-          MAILERLITE_GROUP_ID: ${{ secrets.MAILERLITE_GROUP_ID }}
-          MAILERLITE_FROM_EMAIL: ${{ secrets.MAILERLITE_FROM_EMAIL }}
-          MAILERLITE_FROM_NAME: ${{ secrets.MAILERLITE_FROM_NAME }}
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+          BUTTONDOWN_SUBJECT_PREFIX: ${{ secrets.BUTTONDOWN_SUBJECT_PREFIX }}
+          BUTTONDOWN_DEFAULT_STATUS: ${{ secrets.BUTTONDOWN_DEFAULT_STATUS }}
+          BUTTONDOWN_DEFAULT_FOOTER: ${{ secrets.BUTTONDOWN_DEFAULT_FOOTER }}
         run: |
           python3 scripts/publish_to_esp.py "${{ steps.find.outputs.FILE }}"
 
@@ -105,7 +82,7 @@ jobs:
         if: success() && steps.find.outputs.FILE != ''
         run: |
           F="$(basename "${{ steps.find.outputs.FILE }}")"
-          echo "$F | $(date -u +%FT%TZ) | published_to: newsletter" >> published.log
+          echo "$F | $(date -u +%FT%TZ) | published_to: buttondown" >> published.log
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
           git add published.log || true
@@ -119,5 +96,4 @@ jobs:
           title: "Send Newsletter workflow failed — ${{ github.run_id }}"
           content: |
             Send Newsletter workflow failed. Check Actions logs for details.
-            **Note:** Ensure you're using the NEW MailerLite API key from:
-            https://dashboard.mailerlite.com/integrations/api
+            **Note:** Ensure you added the Buttondown API key as repo secret: BUTTONDOWN_API_KEY
