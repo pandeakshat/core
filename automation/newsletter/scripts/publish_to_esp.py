@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 import os, sys, markdown, requests, yaml, json
+
 API_KEY = os.getenv("MAILERLITE_API_KEY")
+GROUP_ID = os.getenv("MAILERLITE_GROUP_ID")
+FROM_EMAIL = os.getenv("MAILERLITE_FROM_EMAIL")
+FROM_NAME = os.getenv("MAILERLITE_FROM_NAME", "Your Name")
 BASE = "https://api.mailerlite.com/api/v2"
 HEADERS = {"X-MailerLite-ApiKey": API_KEY, "Content-Type": "application/json", "Accept":"application/json"}
 
@@ -12,7 +16,6 @@ def render_html(md_path):
     else:
         body = md
     html_body = markdown.markdown(body)
-    # Wrap in minimal HTML with unsubscribe token required by MailerLite
     full_html = f"""<html><head><title></title></head><body>{html_body}
     <p><small><a href="{{{{ $unsubscribe }}}}">Unsubscribe</a></small></p>
     </body></html>"""
@@ -26,11 +29,12 @@ def read_meta(md_path):
             return yaml.safe_load(parts[1])
     return {}
 
-def create_campaign(title, from_name, from_email):
+def create_campaign(title, from_name, from_email, group_id):
     payload = {
         "subject": title,
         "from": {"name": from_name, "email": from_email},
-        "type": "regular"
+        "type": "regular",
+        "groups": [int(group_id)]
     }
     r = requests.post(f"{BASE}/campaigns", json=payload, headers=HEADERS)
     if r.status_code >= 400:
@@ -39,7 +43,6 @@ def create_campaign(title, from_name, from_email):
     return r.json()
 
 def upload_content(campaign_id, html):
-    # MailerLite expects full HTML with <head> and <body> and an unsubscribe token
     payload = {"html": html}
     r = requests.put(f"{BASE}/campaigns/{campaign_id}/content", json=payload, headers=HEADERS)
     if r.status_code >= 400:
@@ -53,23 +56,25 @@ def main():
         sys.exit(1)
     if not API_KEY:
         print("Missing MAILERLITE_API_KEY", file=sys.stderr); sys.exit(2)
+    if not GROUP_ID:
+        print("Missing MAILERLITE_GROUP_ID (set as repo secret)", file=sys.stderr); sys.exit(3)
+    if not FROM_EMAIL:
+        print("Missing MAILERLITE_FROM_EMAIL (set as repo secret)", file=sys.stderr); sys.exit(4)
 
     path = sys.argv[1]
     meta = read_meta(path)
     title = meta.get("title", "Newsletter")
-    from_name = meta.get("from_name", "Your Name")
-    # IMPORTANT: set this to an email that MailerLite has verified for your account
-    from_email = meta.get("from_email", os.getenv("MAILERLITE_FROM_EMAIL", "no-reply@your-verified-domain.com"))
+    from_name = meta.get("from_name", FROM_NAME)
+    from_email = meta.get("from_email", FROM_EMAIL)
 
     html = render_html(path)
 
-    # Step 1: create campaign
-    camp = create_campaign(title, from_name, from_email)
+    camp = create_campaign(title, from_name, from_email, GROUP_ID)
+    # campaign id location varies; try common keys
     camp_id = camp.get("id") or camp.get("data", {}).get("id") or camp.get("campaign", {}).get("id")
     if not camp_id:
-        print("NO_CAMPAIGN_ID_RETURNED", camp, file=sys.stderr); sys.exit(3)
+        print("NO_CAMPAIGN_ID_RETURNED", camp, file=sys.stderr); sys.exit(5)
 
-    # Step 2: upload content
     upload_resp = upload_content(camp_id, html)
     print(json.dumps({"campaign": camp, "upload": upload_resp}))
 
