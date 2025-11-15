@@ -30,11 +30,18 @@ def read_meta(md_path):
     return {}
 
 def create_campaign(title, from_name, from_email, group_id):
+    # MailerLite requires 'name' and an 'emails' entry for regular campaigns
     payload = {
+        "name": title,
         "subject": title,
-        "from": {"name": from_name, "email": from_email},
         "type": "regular",
-        "groups": [int(group_id)]
+        "groups": [int(group_id)],
+        "emails": [
+            {
+                "from_name": from_name,
+                "from": from_email
+            }
+        ]
     }
     r = requests.post(f"{BASE}/campaigns", json=payload, headers=HEADERS)
     if r.status_code >= 400:
@@ -57,9 +64,9 @@ def main():
     if not API_KEY:
         print("Missing MAILERLITE_API_KEY", file=sys.stderr); sys.exit(2)
     if not GROUP_ID:
-        print("Missing MAILERLITE_GROUP_ID (set as repo secret)", file=sys.stderr); sys.exit(3)
+        print("Missing MAILERLITE_GROUP_ID", file=sys.stderr); sys.exit(3)
     if not FROM_EMAIL:
-        print("Missing MAILERLITE_FROM_EMAIL (set as repo secret)", file=sys.stderr); sys.exit(4)
+        print("Missing MAILERLITE_FROM_EMAIL", file=sys.stderr); sys.exit(4)
 
     path = sys.argv[1]
     meta = read_meta(path)
@@ -67,13 +74,17 @@ def main():
     from_name = meta.get("from_name", FROM_NAME)
     from_email = meta.get("from_email", FROM_EMAIL)
 
+    # basic validation: simple email format check
+    if "@" not in from_email or "." not in from_email.split("@")[-1]:
+        print("INVALID_FROM_EMAIL", from_email, file=sys.stderr); sys.exit(5)
+
     html = render_html(path)
 
     camp = create_campaign(title, from_name, from_email, GROUP_ID)
-    # campaign id location varies; try common keys
-    camp_id = camp.get("id") or camp.get("data", {}).get("id") or camp.get("campaign", {}).get("id")
+    # campaign id location may vary
+    camp_id = camp.get("id") or camp.get("data", {}).get("id") or (camp.get("campaign") or {}).get("id")
     if not camp_id:
-        print("NO_CAMPAIGN_ID_RETURNED", camp, file=sys.stderr); sys.exit(5)
+        print("NO_CAMPAIGN_ID_RETURNED", camp, file=sys.stderr); sys.exit(6)
 
     upload_resp = upload_content(camp_id, html)
     print(json.dumps({"campaign": camp, "upload": upload_resp}))
