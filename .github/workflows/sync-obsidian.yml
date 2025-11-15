@@ -49,8 +49,8 @@ jobs:
       - name: Sync welcome templates
         run: |
           mkdir -p automation/newsletter/welcome
-          cp -u obsidian/Projects/PandeAkshat/Write/Newsletter/welcome/mid-series.md automation/newsletter/welcome/ 2>/dev/null || true
-          cp -u obsidian/Projects/PandeAkshat/Write/Newsletter/welcome/post-series.md automation/newsletter/welcome/ 2>/dev/null || true
+          cp -u obsidian/Projects/PandeAkshat/Write/Newsletter/Welcome/mid-series.md automation/newsletter/welcome/ 2>/dev/null || true
+          cp -u obsidian/Projects/PandeAkshat/Write/Newsletter/Welcome/post-series.md automation/newsletter/welcome/ 2>/dev/null || true
           echo "✅ Synced welcome templates."
 
       # -------------------------------------------------------------
