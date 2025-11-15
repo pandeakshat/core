@@ -29,7 +29,7 @@ jobs:
       - name: Sync Blog markdown files
         run: |
           mkdir -p pandeakshat-portfolio/src/content/blog
-          find obsidian/Projects/PandeAkshat/Blog -type f -name "*.md" \
+          find obsidian/Projects/PandeAkshat/Write/Blog -type f -name "*.md" \
             -exec cp {} pandeakshat-portfolio/src/content/blog/ \;
           echo "✅ Synced blog files."
 
@@ -39,7 +39,7 @@ jobs:
       - name: Sync weekly newsletters
         run: |
           mkdir -p automation/newsletter/newsletters
-          find obsidian/Projects/PandeAkshat/Newsletter/newsletters -type f -name "newsletter-*.md" \
+          find obsidian/Projects/PandeAkshat/Write/Newsletter/newsletters -type f -name "newsletter-*.md" \
             -exec cp -u {} automation/newsletter/newsletters/ \;
           echo "✅ Synced newsletter files."
 
@@ -49,8 +49,8 @@ jobs:
       - name: Sync welcome templates
         run: |
           mkdir -p automation/newsletter/welcome
-          cp -u obsidian/Projects/PandeAkshat/Newsletter/welcome/mid-series.md automation/newsletter/welcome/ 2>/dev/null || true
-          cp -u obsidian/Projects/PandeAkshat/Newsletter/welcome/post-series.md automation/newsletter/welcome/ 2>/dev/null || true
+          cp -u obsidian/Projects/PandeAkshat/Write/Newsletter/welcome/mid-series.md automation/newsletter/welcome/ 2>/dev/null || true
+          cp -u obsidian/Projects/PandeAkshat/Write/Newsletter/welcome/post-series.md automation/newsletter/welcome/ 2>/dev/null || true
           echo "✅ Synced welcome templates."
 
       # -------------------------------------------------------------
