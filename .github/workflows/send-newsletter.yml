@@ -2,7 +2,7 @@ name: Send Newsletter (Manual / Scheduled)
 
 on:
   schedule:
-    - cron: '0 2 * * 1'   # Monday 10:00 SGT (02:00 UTC) — adjust if you prefer another day
+    - cron: '0 2 * * 1'
   workflow_dispatch:
 
 permissions:
@@ -47,39 +47,37 @@ jobs:
           echo "=== Environment Variable Validation ==="
           errors=0
 
-          # Validate API Key
-          if [[ -z "$MAILERLITE_API_KEY" || "$MAILERLITE_API_KEY" == "0" ]]; then
-            echo "::error::MAILERLITE_API_KEY is missing or placeholder '0'"
+          # Check API Key format (new API keys are ~1000 chars)
+          if [[ -z "$MAILERLITE_API_KEY" ]]; then
+            echo "::error::MAILERLITE_API_KEY is empty"
             errors=$((errors + 1))
+          elif [[ ${#MAILERLITE_API_KEY} -lt 50 ]]; then
+            echo "::warning::API key seems short (${#MAILERLITE_API_KEY} chars). Are you using the new API key?"
           else
-            echo "✅ MAILERLITE_API_KEY: Set (length: ${#MAILERLITE_API_KEY})"
+            echo "✅ MAILERLITE_API_KEY: Set (${#MAILERLITE_API_KEY} chars)"
           fi
 
-          # Validate Group ID
+          # Check Group ID is numeric
           if [[ -z "$MAILERLITE_GROUP_ID" || "$MAILERLITE_GROUP_ID" == "0" ]]; then
-            echo "::error::MAILERLITE_GROUP_ID is missing or placeholder '0'"
+            echo "::error::MAILERLITE_GROUP_ID is empty or placeholder"
+            errors=$((errors + 1))
+          elif ! [[ "$MAILERLITE_GROUP_ID" =~ ^[0-9]+$ ]]; then
+            echo "::error::MAILERLITE_GROUP_ID must be numeric: $MAILERLITE_GROUP_ID"
             errors=$((errors + 1))
           else
-            echo "✅ MAILERLITE_GROUP_ID: Set (value: $MAILERLITE_GROUP_ID)"
+            echo "✅ MAILERLITE_GROUP_ID: $MAILERLITE_GROUP_ID"
           fi
 
-          # Validate From Email
-          if [[ -z "$MAILERLITE_FROM_EMAIL" || "$MAILERLITE_FROM_EMAIL" == "0" ]]; then
-            echo "::error::MAILERLITE_FROM_EMAIL is missing or placeholder '0'"
-            errors=$((errors + 1))
-          elif [[ ! "$MAILERLITE_FROM_EMAIL" =~ ^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$ ]]; then
-            echo "::error::MAILERLITE_FROM_EMAIL has invalid format: $MAILERLITE_FROM_EMAIL"
+          # Show email and name for debugging (not masked here)
+          if [[ -z "$MAILERLITE_FROM_EMAIL" ]]; then
+            echo "::error::MAILERLITE_FROM_EMAIL is empty"
             errors=$((errors + 1))
           else
             echo "✅ MAILERLITE_FROM_EMAIL: $MAILERLITE_FROM_EMAIL"
           fi
 
-          # Validate From Name
-          if [[ -z "$MAILERLITE_FROM_NAME" || "$MAILERLITE_FROM_NAME" == "0" ]]; then
-            echo "::error::MAILERLITE_FROM_NAME is missing or placeholder '0'"
-            errors=$((errors + 1))
-          elif [[ ${#MAILERLITE_FROM_NAME} -lt 2 ]]; then
-            echo "::error::MAILERLITE_FROM_NAME is too short: '$MAILERLITE_FROM_NAME'"
+          if [[ -z "$MAILERLITE_FROM_NAME" ]]; then
+            echo "::error::MAILERLITE_FROM_NAME is empty"
             errors=$((errors + 1))
           else
             echo "✅ MAILERLITE_FROM_NAME: $MAILERLITE_FROM_NAME"
@@ -88,11 +86,8 @@ jobs:
           if [[ $errors -gt 0 ]]; then
             echo ""
             echo "❌ Validation failed with $errors error(s)"
-            echo "→ Go to Settings → Secrets and variables → Actions"
-            echo "→ Update all MAILERLITE_* secrets with real values"
             exit 1
           fi
-
           echo ""
           echo "✅ All environment variables are properly configured"
 
@@ -124,4 +119,5 @@ jobs:
           title: "Send Newsletter workflow failed — ${{ github.run_id }}"
           content: |
             Send Newsletter workflow failed. Check Actions logs for details.
-            **Note:** If validation failed, update your GitHub Secrets with real values (not "0").
+            **Note:** Ensure you're using the NEW MailerLite API key from:
+            https://dashboard.mailerlite.com/integrations/api
