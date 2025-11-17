@@ -5,13 +5,8 @@ const blogs = [
     "summary": "A reflective questionnaire to help you pause, reset, and realign with purpose and understanding.",
     "date": "01-11-2025",
     "tags": [
-      "SelfDiscovery",
-      "PersonalGrowth",
-      "Mindfulness",
-      "Reflection",
-      "Journaling",
-      "SelfImprovement",
-      "write"
+      "write",
+      "portfolio"
     ],
     "cover": "/blogs/the-realignment-plan.png",
     "readTime": "4 min read",
@@ -23,10 +18,8 @@ const blogs = [
     "summary": "A reflection on programming, mistakes, and the psychology of growth — exploring how debugging code teaches us to debug life.",
     "date": "01-11-2025",
     "tags": [
-      "Programming",
-      "Learning",
-      "Mindset",
-      "write"
+      "write",
+      "portfolio"
     ],
     "cover": "/blogs/the-art-of-debugging.png",
     "readTime": "10 min read",
@@ -38,9 +31,8 @@ const blogs = [
     "summary": "A reflective roadmap to reset, rebuild, and realign your data science career with purpose and adaptability in the GenAI era.",
     "date": "01-11-2025",
     "tags": [
-      "Freelancing",
-      "Data-Science",
-      "write"
+      "write",
+      "portfolio"
     ],
     "cover": "/blogs/freedom-with-data.png",
     "readTime": "10 min read",
@@ -52,9 +44,8 @@ const blogs = [
     "summary": "A modular system to transform reflection into consistent, evolutionary growth.",
     "date": "05-11-2025",
     "tags": [
-      "Optimization",
-      "PersonalGrowth",
-      "SelfImprovement"
+      "write",
+      "portfolio"
     ],
     "cover": "/blogs/solo-social-leveling-system.png",
     "readTime": "9 min read",
