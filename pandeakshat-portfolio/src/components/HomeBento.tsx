@@ -24,9 +24,7 @@ export default function HomeBento() {
         subtitle="Overview"
       >
         <p className="text-sm leading-relaxed text-foreground/80">
-            Data Scientist with 3+ years’ experience in analytics and AI product development.  
-            Skilled in <strong>Python, SQL</strong>, and <strong>cloud platforms (AWS, GCP, Azure)</strong> for building data pipelines, machine learning models, and LLM applications.  
-            Experienced in automation, dashboarding, and deploying AI workflows that improve efficiency and decision-making.
+Data analyst and independent consultant transitioning into applied data science, specializing in automation and practical ML systems. Built and deployed models across churn prediction, route optimization, and medical plausibility scoring, cutting manual workloads by hours and reducing audit/validation errors by up to 80%. Focused on converting messy operational data into reliable pipelines, scalable tools, and high-accuracy models.
         </p>
       </BentoCard>
 
@@ -37,17 +35,17 @@ export default function HomeBento() {
         icon={<Cpu />}
       >
         <div className="grid grid-cols-2 gap-2 mt-2 text-sm">
-          <span>Python</span>
-          <span>SQL</span>
-          <span>TensorFlow</span>
-          <span>PyTorch</span>
-          <span>LangChain</span>
-          <span>Hugging Face</span>
-          <span>AWS / GCP / Azure</span>
-          <span>Streamlit</span>
+          <span>Python (Pandas, Scikit-Learn, Streamlit )</span>
+          <span>SQL (Query Optimization, Window Functions)</span>
+          <span>Excel (Power Query, DAX, Automation)</span>
+          <span>Git & GitHub</span>
+          <span>Docker (Containerization & Deployment)</span>
+          <span>Power BI (Data Visualization & Reporting)</span>
+          <span>AWS / GCP / Azure (Deployment)</span>
+          <span>Langchain / Hugging Face (API Testing)</span>
         </div>
         <p className="text-xs text-foreground/60 mt-4">
-          Focused on end-to-end analytics, LLMs, and AI pipeline engineering.
+          End-to-end analytics, model deployment, and habit-driven productivity systems.
         </p>
       </BentoCard>
 

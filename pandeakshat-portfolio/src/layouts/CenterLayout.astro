@@ -13,11 +13,10 @@ const { title = "PandeAkshat", description = "" } = Astro.props;
     <meta name="description" content={description} />
   </head>
 
-<body class="relative min-h-screen text-foreground bg-transparent overflow-visible">
-  <BackgroundAnimation client:load />
-  <main class="relative z-[10] flex flex-col items-center justify-center min-h-screen p-6">
-    <slot />
-  </main>
-</body>
-
+  <body class="relative min-h-screen text-foreground bg-transparent overflow-visible">
+    <BackgroundAnimation client:idle /> <!-- ✅ CHANGED -->
+    <main class="relative z-[10] flex flex-col items-center justify-center min-h-screen p-6">
+      <slot />
+    </main>
+  </body>
 </html>

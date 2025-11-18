@@ -15,159 +15,150 @@ export default function ResumeView() {
           className="col-span-full"
         >
           <p>Noida, UP, India · 📧 mail@pandeakshat.com · 📱 +91-9958091895</p>
-          <p>🌐 Portfolio · LinkedIn · GitHub</p>
+          <p>
+            <a href="https://pandeakshat.com" target="_blank" rel="noopener noreferrer">Portfolio</a> · 
+            <a href="https://linkedin.com/in/pandeakshat" target="_blank" rel="noopener noreferrer">LinkedIn</a> · 
+            <a href="https://github.com/pandeakshat" target="_blank" rel="noopener noreferrer">GitHub</a> </p>
           <br />
           <p>
             <strong>Profile Summary:</strong> <br />
-            Results-driven Data Analyst skilled in SQL, Python, and BI tools for
-            building automated workflows and dashboards. Experienced in
-            delivering actionable insights that improve decision-making and
-            efficiency. Achieved 37% faster reporting and 20% higher product
-            adoption through data automation and visualization initiatives.
+            Data analyst and independent consultant transitioning into applied data science, specializing in automation and practical ML systems. Built and deployed models across churn prediction, route optimization, and medical plausibility scoring, cutting manual workloads by hours and reducing audit/validation errors by up to 80%. Focused on converting messy operational data into reliable pipelines, scalable tools, and high-accuracy models.
           </p>
         </ResumeCard>
+{/* EXPERIENCE */}
+<ResumeCard title="Experience" className="col-span-full">
+  <p>
+    <strong>Data Science Consultant — Remote</strong> <br />
+    Jun 2025 – Present
+  </p>
+  <ul className="list-disc pl-5">
+    <li>
+      Delivered 4 ML/data products for logistics, healthcare, and engineering clients in 4 months, covering pipelines, models, and deployment.
+    </li>
+    <li>
+      Built a route-optimization model (scikit-learn) reducing projected delivery times by 12%, saving ~₹2L/month.
+    </li>
+    <li>
+      Developed a medical plausibility scoring model with 85% recall, backed by a full validation framework and technical documentation.
+    </li>
+    <li>
+      Engineered ETL pipelines processing 50K+ rows/week; automated QC audits cut manual review time by 40%.
+    </li>
+  </ul>
 
-        {/* EXPERIENCE */}
-        <ResumeCard title="Experience" className="col-span-full">
-          <p>
-            <strong>Head of Development — Dualchain (London, UK)</strong> <br />
-            Aug 2022 – Present · Remote, Part-time
-          </p>
-          <ul className="list-disc pl-5">
-            <li>
-              Managed full lifecycle of decentralized analytics platforms,
-              improving user adoption by 20%.
-            </li>
-            <li>
-              Built Python + SQL + Tableau dashboards, increasing stakeholder
-              visibility by 10%.
-            </li>
-            <li>
-              Designed blockchain-based marketplaces, improving transaction
-              efficiency by 15%.
-            </li>
-            <li>
-              Collaborated with cross-functional teams to implement automation
-              and analytics initiatives.
-            </li>
-          </ul>
+  <p className="mt-4">
+    <strong>Process Automation Analyst — Sloane Square Hotel, London (Remote)</strong> <br />
+    Nov 2023 – Jun 2025
+  </p>
+  <ul className="list-disc pl-5">
+    <li>
+      Automated nightly reconciliation workflows for a 100-room property using Excel macros and validated templates, saving 30 minutes per shift.
+    </li>
+    <li>
+      Reduced audit discrepancies from 5–8 per night to 0–2 (80% improvement) through SOP standardization.
+    </li>
+    <li>
+      Deployed an internal knowledge-base website that halved documentation lookup time for a 3-person night audit team.
+    </li>
+  </ul>
 
-          <p>
-            <strong>Night Auditor — Sloane Square Hotel (London)</strong> <br />
-            Nov 2023 – Jun 2025
-          </p>
-          <ul className="list-disc pl-5">
-            <li>
-              Automated nightly reconciliations using Python + Excel, reducing
-              processing time by 25–37%.
-            </li>
-            <li>
-              Monitored occupancy, revenue, and reconciliation accuracy KPIs.
-            </li>
-            <li>
-              Streamlined transaction and reporting workflows across departments.
-            </li>
-          </ul>
+  <p className="mt-4">
+    <strong>Senior Operations Analyst — Homes for Students, UK (Remote)</strong> <br />
+    Apr 2022 – Nov 2023
+  </p>
+  <ul className="list-disc pl-5">
+    <li>
+      Managed KPI reporting for 200+ housing units via automated weekly Power BI dashboards.
+    </li>
+    <li>
+      Identified complaint patterns using cohort analysis, leading to process adjustments that reduced recurring issues by 20%.
+    </li>
+  </ul>
 
-          <p>
-            <strong>
-              Senior Customer Service Advisor — Homes for Students (London, UK)
-            </strong>{" "}
-            <br />
-            Apr 2022 – Nov 2023
-          </p>
-          <ul className="list-disc pl-5">
-            <li>
-              Managed operations and data for 100+ residents, improving
-              coordination efficiency by 20%.
-            </li>
-            <li>
-              Developed analytics-based KPI dashboards for finance and logistics
-              optimization.
-            </li>
-          </ul>
-        </ResumeCard>
+  <p className="mt-4">
+    <strong>Technical Lead — Dualchain (Equity-based)</strong> <br />
+    Aug 2022 – Present
+  </p>
+  <ul className="list-disc pl-5">
+    <li>
+      Architected a modular web ecosystem with automated CI/CD pipelines, reducing deployment time from 30 minutes to 5 minutes.
+    </li>
+    <li>
+      Built a DEX aggregator interface that reduced API calls by 66% (3 → 1), halving swap transaction time.
+    </li>
+    <li>
+      Created donation-tracking dashboards for $5K+ contributions while migrating infrastructure to free-tier cloud hosting.
+    </li>
+  </ul>
+</ResumeCard>
 
-        {/* SKILLS */}
-        <ResumeCard title="Skills" className="col-span-6 md:col-span-6">
-          <p>
-            <strong>Analytics & BI:</strong> SQL, Tableau, Power BI, Excel (Pivot,
-            VLOOKUP, Macros)
-          </p>
-          <p>
-            <strong>Programming & Data Science:</strong> Python (Pandas, NumPy,
-            Scikit-learn, TensorFlow), Streamlit
-          </p>
-          <p>
-            <strong>E-Commerce & KPIs:</strong> GMV, Sell-through, Margins,
-            Returns %, Stock Health, Lifecycle Analysis
-          </p>
-          <p>
-            <strong>Cloud & Databases:</strong> AWS, MongoDB, Firebase
-          </p>
-          <p>
-            <strong>Tools & Collaboration:</strong> Git, Docker, Jupyter, VS Code
-          </p>
-        </ResumeCard>
 
-        {/* PROJECTS */}
-        <ResumeCard title="Projects" className="col-span-6 md:col-span-6">
-          <ul className="list-disc pl-5">
-            <li>
-              <strong>Customer Intelligence Hub</strong> — Streamlit · FastAPI ·
-              SQL <br />
-              Built a customer analytics app for churn prediction and automated
-              KPI reporting with integrated data audit modules.
-            </li>
-            <li>
-              <strong>Data Intelligence Hub</strong> — Streamlit · Pandas
-              Profiling · PyCaret <br />
-              Developed a toolkit for dataset validation, cleaning, and
-              transformation into ML-ready formats.
-            </li>
-            <li>
-              <strong>Carbon Chain</strong> — Python · Web3 · Streamlit <br />
-              Built a blockchain tool to visualize and verify carbon offset data
-              with real-time ESG analytics.
-            </li>
-          </ul>
-        </ResumeCard>
+{/* SKILLS */}
+<ResumeCard title="Skills" className="col-span-6 md:col-span-6">
+  <p>
+    <strong>Programming:</strong> Python (Pandas, Scikit-learn, Streamlit, FastAPI), SQL (CTEs, window functions), Git/GitHub Actions
+  </p>
+  <p>
+    <strong>ML Engineering:</strong> Feature engineering, model validation, ETL pipelines, Docker containerization
+  </p>
+  <p>
+    <strong>Business Intelligence:</strong> Power BI (DAX), Tableau, Excel automation, ARIMA forecasting
+  </p>
+  <p>
+    <strong>Cloud:</strong> AWS S3, Azure Functions, Firebase, CI/CD pipelines
+  </p>
+  <p>
+    <strong>Tools:</strong> LangChain, Hugging Face Transformers, API integration
+  </p>
+</ResumeCard>
 
-        {/* EDUCATION */}
-        <ResumeCard title="Education" className="col-span-6 md:col-span-6">
-          <p>
-            <strong>M.Sc. Financial Technology with Data Science</strong> — 
-            University of Bristol (2021–2023)
-          </p>
-          <p>
-            Thesis: Analysis & Indexing of Blockchain Technologies using Carbon
-            Footprint
-          </p>
-          <p>
-            <strong>B.Tech Computer Science & Engineering</strong> — Amity
-            University (2017–2021)
-          </p>
-          <p>
-            Major Project: Music Genre Classification using AI
-          </p>
-        </ResumeCard>
 
-        {/* CERTIFICATIONS */}
-        <ResumeCard title="Certifications" className="col-span-6 md:col-span-6">
-          <ul className="list-disc pl-5">
-            <li>Google Data Analytics (2023)</li>
-            <li>AWS Cloud Foundations (2022)</li>
-            <li>AI Essentials (2024)</li>
-            <li>Bloomberg BMC + ESG (2025)</li>
-            <li>IBM Data Fundamentals (2025)</li>
-            <li>NPTEL Social Network Analysis (2021)</li>
-          </ul>
-        </ResumeCard>
+{/* PROJECTS */}
+<ResumeCard title="Projects" className="col-span-6 md:col-span-6">
+  <ul className="list-disc pl-5">
+    <li>
+      <strong>Customer Intelligence Hub</strong> — Streamlit · FastAPI · Scikit-learn <br />
+      Churn prediction using XGBoost with engineered features. 85% recall, 78% precision. Automated validation reduced QC time by 40%. 
+    </li>
+    <li>
+      <strong>Sales Forecasting Platform</strong> — Python · SQL · ARIMA <br />
+      BI pipeline processing 10K+ weekly transactions with ETL validation and demand forecasting. Achieved MAPE &lt; 15%.
+    </li>
+    <li>
+      <strong>Data Audit Toolkit</strong> — Streamlit · Pandas <br />
+      Automated schema validation and outlier detection; processes 50+ datasets in under 60 seconds.
+    </li>
+  </ul>
+</ResumeCard>
 
-        {/* INTERESTS */}
-        <ResumeCard title="Interests" className="col-span-6 md:col-span-6">
-          <p>Anime · Gaming · Cooking · Podcasts · Poetry · Travel · Digital Trends</p>
-        </ResumeCard>
+
+{/* EDUCATION */}
+<ResumeCard title="Education" className="col-span-6 md:col-span-6">
+  <p>
+    <strong>M.Sc. Financial Technology with Data Science</strong> — University of Bristol (2021–2023)
+  </p>
+  <p className="mt-2">
+    <strong>B.Tech Computer Science & Engineering</strong> — Amity University (2017–2021)
+  </p>
+</ResumeCard>
+
+
+{/* CERTIFICATIONS */}
+<ResumeCard title="Certifications" className="col-span-6 md:col-span-6">
+  <ul className="list-disc pl-5">
+    <li>Google Data Analytics</li>
+    <li>AWS Cloud Foundations</li>
+    <li>IBM Data Fundamentals</li>
+    <li>AI Essentials</li>
+  </ul>
+</ResumeCard>
+
+
+{/* INTERESTS */}
+<ResumeCard title="Interests" className="col-span-6 md:col-span-6">
+  <p>Anime · Gaming · Cooking · Podcasts · Poetry · Travel · Digital Trends</p>
+</ResumeCard>
+
       </BentoGrid>
 
       {/* Floating Buttons */}

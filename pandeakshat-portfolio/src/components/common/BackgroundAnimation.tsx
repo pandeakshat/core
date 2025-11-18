@@ -6,33 +6,48 @@ import { loadSlim } from "tsparticles-slim";
 
 export default function BackgroundAnimation() {
   const [enabled, setEnabled] = useState(true);
-  const [mode, setMode] = useState<"gradient" | "mesh">("mesh"); // ✅ default = mesh
-  const [ready, setReady] = useState(false); // ✅ ensures React context loaded
+  const [mode, setMode] = useState<"gradient" | "mesh">("mesh");
+  const [ready, setReady] = useState(false);
 
+  // ✅ Wrap localStorage access in try-catch for SSR safety
   useEffect(() => {
-    // ensure this runs client-side only
-    if (typeof window !== "undefined") {
+    try {
       const storedEnabled = localStorage.getItem("backgroundAnimation");
       const storedMode = localStorage.getItem("backgroundMode");
       if (storedEnabled) setEnabled(storedEnabled === "true");
-      if (storedMode) setMode(storedMode as "gradient" | "mesh");
+      if (storedMode === "gradient" || storedMode === "mesh") {
+        setMode(storedMode);
+      }
+    } catch (e) {
+      // localStorage not available in some environments
+    } finally {
       setReady(true);
     }
   }, []);
 
   useEffect(() => {
-    if (ready) {
+    try {
       localStorage.setItem("backgroundAnimation", String(enabled));
       localStorage.setItem("backgroundMode", mode);
+    } catch (e) {
+      // Ignore storage errors
     }
-  }, [enabled, mode, ready]);
+  }, [enabled, mode]);
 
   const initParticles = async (engine: any) => {
-    await loadSlim(engine);
+    try {
+      await loadSlim(engine);
+    } catch (e) {
+      console.error("Failed to load particles:", e);
+    }
   };
 
-  // ✅ don’t render anything until hydrated
-  if (!ready) return null;
+  // ✅ Return null earlier if not enabled, but AFTER hooks
+  if (!ready) {
+    return (
+      <div className="fixed inset-0 z-[-1] bg-gradient-to-br from-background to-muted" />
+    );
+  }
 
   return (
     <>
@@ -91,10 +106,7 @@ export default function BackgroundAnimation() {
 
       {/* Mesh */}
       {enabled && mode === "mesh" && (
-        <div
-          id="global-particles-wrapper"
-          className="fixed inset-0 w-screen h-screen z-[-1] pointer-events-none"
-        >
+        <div className="fixed inset-0 w-screen h-screen z-[-1] pointer-events-none">
           <Particles
             id="tsparticles"
             init={initParticles}

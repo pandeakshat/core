@@ -1,16 +1,21 @@
 ---
-import LinksView from "../components/links/LinksView"
-import BaseLayout from "../layouts/CenterLayout.astro"
-import hire from "../data/hire"
-import BackHomeButton from "../components/common/BackHomeButton"
+// src/pages/hire.astro
+import LinksView from "../components/links/LinksView";
+import BaseLayout from "../layouts/CenterLayout.astro";
+import hire from "../data/hire";
+import BackHomeButton from "../components/common/BackHomeButton";
 ---
 
-<BaseLayout title="Hire — Akshat Pande">
+<BaseLayout 
+  title="Hire — Akshat Pande"
+  description="Hire Akshat for AI, data science, and automation projects."
+>
+  <BackHomeButton client:idle position="top-left" />
+  
   <LinksView
-    client:load
+    client:idle  // ✅ Better than client:load
     title="Hire Me"
     subtitle="Work with me on AI, data, or automation projects."
     links={hire}
   />
-  <BackHomeButton client:load position="top-left" />
 </BaseLayout>

@@ -5,13 +5,8 @@ const blogs = [
     "summary": "A reflective questionnaire to help you pause, reset, and realign with purpose and understanding.",
     "date": "01-11-2025",
     "tags": [
-      "SelfDiscovery",
-      "PersonalGrowth",
-      "Mindfulness",
       "Reflection",
-      "Journaling",
-      "SelfImprovement",
-      "write"
+      "Growth"
     ],
     "cover": "/blogs/the-realignment-plan.png",
     "readTime": "4 min read",
@@ -24,9 +19,7 @@ const blogs = [
     "date": "01-11-2025",
     "tags": [
       "Programming",
-      "Learning",
-      "Mindset",
-      "write"
+      "Mindset"
     ],
     "cover": "/blogs/the-art-of-debugging.png",
     "readTime": "10 min read",
@@ -39,8 +32,7 @@ const blogs = [
     "date": "01-11-2025",
     "tags": [
       "Freelancing",
-      "Data-Science",
-      "write"
+      "Data-Science"
     ],
     "cover": "/blogs/freedom-with-data.png",
     "readTime": "10 min read",
@@ -53,8 +45,9 @@ const blogs = [
     "date": "05-11-2025",
     "tags": [
       "Optimization",
-      "PersonalGrowth",
-      "SelfImprovement"
+      "System-Thinking",
+      "Growth"
+
     ],
     "cover": "/blogs/solo-social-leveling-system.png",
     "readTime": "9 min read",
@@ -66,8 +59,8 @@ const blogs = [
     "summary": "Architecting habits, routines, and regions like production code in the Solo-Social System",
     "date": "12-11-2025",
     "tags": [
-      "write",
-      "portfolio"
+      "Habit-Building",
+      "System-Thinking"
     ],
     "cover": "/blogs/execution-layer.png",
     "readTime": "6 min read",

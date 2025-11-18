@@ -1,16 +1,21 @@
 ---
-import LinksView from "../components/links/LinksView"
-import BaseLayout from "../layouts/CenterLayout.astro"
-import connect from "../data/connect"
-import BackHomeButton from "../components/common/BackHomeButton"
+// src/pages/connect.astro
+import LinksView from "../components/links/LinksView";
+import BaseLayout from "../layouts/CenterLayout.astro";
+import connect from "../data/connect";
+import BackHomeButton from "../components/common/BackHomeButton";
 ---
 
-<BaseLayout title="Connect — Akshat Pande">
+<BaseLayout 
+  title="Connect — Akshat Pande"
+  description="Connect with Akshat on LinkedIn, Twitter, YouTube, and GitHub."
+>
+  <BackHomeButton client:idle position="top-left" />
+  
   <LinksView
-    client:load
-    title="Connect & Collaborate"
-    subtitle="Let's network and share ideas across communities."
+    client:idle
+    title="Let's Connect"
+    subtitle="Stay updated with my work across platforms."
     links={connect}
   />
-  <BackHomeButton client:load position="top-left" />
 </BaseLayout>

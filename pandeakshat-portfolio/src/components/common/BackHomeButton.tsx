@@ -1,9 +1,9 @@
-import * as React from "react"
-import { Home } from "lucide-react"
-import { motion } from "framer-motion"
+import * as React from "react";
+import { Home } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface BackHomeButtonProps {
-  position?: "top-left" | "top-right" | "bottom-left" | "bottom-right"
+  position?: "top-left" | "top-right" | "bottom-left" | "bottom-right";
 }
 
 export default function BackHomeButton({
@@ -14,7 +14,7 @@ export default function BackHomeButton({
     "top-right": "top-5 right-5",
     "bottom-left": "bottom-5 left-5",
     "bottom-right": "bottom-5 right-5",
-  }[position]
+  }[position];
 
   return (
     <motion.a
@@ -26,5 +26,5 @@ export default function BackHomeButton({
       <Home className="w-4 h-4 text-primary" />
       <span className="text-sm font-medium">Home</span>
     </motion.a>
-  )
+  );
 }
