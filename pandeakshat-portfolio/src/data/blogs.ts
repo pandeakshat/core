@@ -5,8 +5,13 @@ const blogs = [
     "summary": "A reflective questionnaire to help you pause, reset, and realign with purpose and understanding.",
     "date": "01-11-2025",
     "tags": [
+      "SelfDiscovery",
+      "PersonalGrowth",
+      "Mindfulness",
       "Reflection",
-      "Growth"
+      "Journaling",
+      "SelfImprovement",
+      "write"
     ],
     "cover": "/blogs/the-realignment-plan.png",
     "readTime": "4 min read",
@@ -19,7 +24,9 @@ const blogs = [
     "date": "01-11-2025",
     "tags": [
       "Programming",
-      "Mindset"
+      "Learning",
+      "Mindset",
+      "write"
     ],
     "cover": "/blogs/the-art-of-debugging.png",
     "readTime": "10 min read",
@@ -32,7 +39,8 @@ const blogs = [
     "date": "01-11-2025",
     "tags": [
       "Freelancing",
-      "Data-Science"
+      "Data-Science",
+      "write"
     ],
     "cover": "/blogs/freedom-with-data.png",
     "readTime": "10 min read",
@@ -45,9 +53,8 @@ const blogs = [
     "date": "05-11-2025",
     "tags": [
       "Optimization",
-      "System-Thinking",
-      "Growth"
-
+      "PersonalGrowth",
+      "SelfImprovement"
     ],
     "cover": "/blogs/solo-social-leveling-system.png",
     "readTime": "9 min read",
