@@ -5,6 +5,11 @@
     "summary": "**Interactive BI dashboard with ML-powered anomaly detection and forecasting for strategic sales insights.**"
   },
   {
+    "name": "data-intelligence",
+    "url": "https://github.com/pandeakshat/data-intelligence",
+    "summary": "**Automated data quality assessment and validation framework — ensuring ML-ready datasets in under 60 seconds.**"
+  },
+  {
     "name": "customer-intelligence",
     "url": "https://github.com/pandeakshat/customer-intelligence",
     "summary": "**Unified analytics system for understanding, predicting, and improving customer behavior — built for real-world business impact.**"
