@@ -2,31 +2,31 @@
   {
     "name": "sales-dashboard",
     "url": "https://github.com/pandeakshat/sales-dashboard",
-    "summary": "Interactive BI dashboard for sales and profitability insights."
-  },
-  {
-    "name": "data-intelligence",
-    "url": "https://github.com/pandeakshat/data-intelligence",
-    "summary": "Automated dataset validation and readiness scoring system for data science workflows."
-  },
-  {
-    "name": "bse-simulator",
-    "url": "https://github.com/pandeakshat/bse-simulator",
-    "summary": "Interactive academic simulator reproducing Bristol Stock Exchange dynamics."
+    "summary": "**Interactive BI dashboard with ML-powered anomaly detection and forecasting for strategic sales insights.**"
   },
   {
     "name": "customer-intelligence",
     "url": "https://github.com/pandeakshat/customer-intelligence",
-    "summary": "Unified analytics system for understanding, predicting, and improving customer behavior."
+    "summary": "**Unified analytics system for understanding, predicting, and improving customer behavior — built for real-world business impact.**"
+  },
+  {
+    "name": "finance-intelligence",
+    "url": "https://github.com/pandeakshat/finance-intelligence",
+    "summary": "**Financial forecasting and portfolio risk analysis platform with institutional-grade metrics and 5% MAPE accuracy.**"
+  },
+  {
+    "name": "fraud-detection",
+    "url": "https://github.com/pandeakshat/fraud-detection",
+    "summary": "**Production-grade transaction anomaly detection system for credit card fraud prevention — achieving >80% precision on highly imbalanced data.**"
+  },
+  {
+    "name": "mlops",
+    "url": "https://github.com/pandeakshat/mlops",
+    "summary": "**Production deployment infrastructure for ML models — Dockerized, CI/CD-enabled, and live in production.**"
   },
   {
     "name": "project-flow",
     "url": "https://github.com/pandeakshat/project-flow",
-    "summary": "Centralized project tracking system for managing all PandeAkshat projects."
-  },
-  {
-    "name": "dao",
-    "url": "https://github.com/pandeakshat/dao",
-    "summary": "A decentralized governance and collaboration layer for the PandeAkshat ecosystem."
+    "summary": "**Personal productivity tracking system engineered for ADHD workflows — turning data into focus.**"
   }
 ]
