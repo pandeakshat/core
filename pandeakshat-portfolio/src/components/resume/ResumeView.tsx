@@ -36,7 +36,7 @@ export default function ResumeView() {
       Delivered 4 ML/data products for logistics, healthcare, and engineering clients in 4 months, covering pipelines, models, and deployment.
     </li>
     <li>
-      Built a route-optimization model (scikit-learn) reducing projected delivery times by 12%, saving ~₹2L/month.
+      Built a route-optimization model (scikit-learn) for US-domestic airline industry with redundancy models to ensure reliability and improve passenger experience.
     </li>
     <li>
       Developed a medical plausibility scoring model with 85% recall, backed by a full validation framework and technical documentation.
