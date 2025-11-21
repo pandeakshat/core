@@ -1,5 +1,6 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
+import ReactMarkdown from "react-markdown" // 1. Import this
 
 interface ProjectCardProps {
   title: string
@@ -34,9 +35,29 @@ export function ProjectCard({
       <div className="flex-1 flex flex-col justify-between p-5">
         <div>
           <h3 className="text-lg font-semibold leading-snug mb-1">{title}</h3>
+          
+          {/* 2. THE UPDATED SECTION */}
           {subtitle && (
-            <p className="text-sm text-foreground/60 mb-3">{subtitle}</p>
+            <div className="text-sm text-foreground/60 mb-3 prose prose-sm max-w-none">
+              <ReactMarkdown
+                components={{
+                  // Override 'p' to avoid nested paragraph warnings and keep layout tight
+                  p: ({ children }) => <span className="block">{children}</span>,
+                  
+                  // Make '**text**' stand out: Darker color + Bold
+                  strong: ({ children }) => (
+                    <span className="font-bold text-foreground opacity-100">
+                      {children}
+                    </span>
+                  ),
+                }}
+              >
+                {subtitle}
+              </ReactMarkdown>
+            </div>
           )}
+          {/* END UPDATED SECTION */}
+
         </div>
 
         <div className="mt-auto border-t border-border pt-3 text-center">
@@ -44,7 +65,6 @@ export function ProjectCard({
             View
           </p>
           <div className="flex justify-center gap-3">
-
             {repo && (
               <a
                 href={repo}
