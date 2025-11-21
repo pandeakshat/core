@@ -5,6 +5,9 @@ date: 05-11-2025
 tags:
   - write
   - portfolio
+  - Optimization
+  - System-Thinking
+  - Growth
 cover: /blogs/solo-social-leveling-system.png
 readTime: 9 min read
 medium: https://write.pandeakshat.com/solo-social-leveling-system

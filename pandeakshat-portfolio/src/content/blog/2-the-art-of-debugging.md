@@ -5,6 +5,8 @@ date: 01-11-2025
 tags:
   - write
   - portfolio
+  - Programming
+  - Mindset
 cover: /blogs/the-art-of-debugging.png
 readTime: 10 min read
 medium: https://write.pandeakshat.com/can-debugging-teach-us-how-to-live-better-f8e620ce9063
