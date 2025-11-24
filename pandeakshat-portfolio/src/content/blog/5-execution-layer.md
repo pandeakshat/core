@@ -5,8 +5,8 @@ date: 12-11-2025
 tags:
   - write
   - portfolio
-  - Habit-Building
-  - System-Thinking
+  - Habits
+  - Systems
 cover: /blogs/execution-layer.png
 readTime: 6 min read
 medium: https://medium.com/@pandeakshat/the-execution-layer-where-identity-compiles-to-behavior-0caff7a1341d
