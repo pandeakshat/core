@@ -5,13 +5,10 @@ const blogs = [
     "summary": "A reflective questionnaire to help you pause, reset, and realign with purpose and understanding.",
     "date": "01-11-2025",
     "tags": [
-      "SelfDiscovery",
-      "PersonalGrowth",
-      "Mindfulness",
+      "write",
+      "portfolio",
       "Reflection",
-      "Journaling",
-      "SelfImprovement",
-      "write"
+      "Growth"
     ],
     "cover": "/blogs/the-realignment-plan.png",
     "readTime": "4 min read",
@@ -23,10 +20,10 @@ const blogs = [
     "summary": "A reflection on programming, mistakes, and the psychology of growth — exploring how debugging code teaches us to debug life.",
     "date": "01-11-2025",
     "tags": [
+      "write",
+      "portfolio",
       "Programming",
-      "Learning",
-      "Mindset",
-      "write"
+      "Mindset"
     ],
     "cover": "/blogs/the-art-of-debugging.png",
     "readTime": "10 min read",
@@ -38,9 +35,10 @@ const blogs = [
     "summary": "A reflective roadmap to reset, rebuild, and realign your data science career with purpose and adaptability in the GenAI era.",
     "date": "01-11-2025",
     "tags": [
+      "write",
+      "portfolio",
       "Freelancing",
-      "Data-Science",
-      "write"
+      "Data-Science"
     ],
     "cover": "/blogs/freedom-with-data.png",
     "readTime": "10 min read",
@@ -52,9 +50,10 @@ const blogs = [
     "summary": "A modular system to transform reflection into consistent, evolutionary growth.",
     "date": "05-11-2025",
     "tags": [
-      "Optimization",
-      "PersonalGrowth",
-      "SelfImprovement"
+      "write",
+      "portfolio",
+      "Growth",
+      "Systems"
     ],
     "cover": "/blogs/solo-social-leveling-system.png",
     "readTime": "9 min read",
@@ -66,12 +65,28 @@ const blogs = [
     "summary": "Architecting habits, routines, and regions like production code in the Solo-Social System",
     "date": "12-11-2025",
     "tags": [
-      "Habit-Building",
-      "System-Thinking"
+      "write",
+      "portfolio",
+      "Habits",
+      "Systems"
     ],
     "cover": "/blogs/execution-layer.png",
     "readTime": "6 min read",
     "medium": "https://medium.com/@pandeakshat/the-execution-layer-where-identity-compiles-to-behavior-0caff7a1341d"
+  },
+  {
+    "id": "6-reflection-layer",
+    "title": "The Reflection Layer: Building a Mindful System for Growth",
+    "summary": "How journaling, gratitude, and introspection reshape your daily life.",
+    "date": "21-11-2025",
+    "tags": [
+      "write",
+      "portfolio",
+      "Reflection"
+    ],
+    "cover": "/blogs/reflection-layer.jpeg",
+    "readTime": "6 min read",
+    "medium": "https://write.pandeakshat.com/the-reflection-layer-building-a-mindful-system-for-growth-944c6978a78d"
   }
 ];
 
