@@ -100,6 +100,45 @@ const blogs = [
     "cover": "/blogs/evolution-layer.png",
     "readTime": "4 min read",
     "medium": "https://medium.com/@pandeakshat/the-evolution-layer-the-final-stage-of-the-solo-social-system-3d1be9af6b8c"
+  },
+  {
+    "id": "7-refinement-layer",
+    "title": "The Refinement Layer",
+    "summary": "Audit — Tune — Change",
+    "date": "26-11-2025",
+    "tags": [
+      "blog",
+      "write"
+    ],
+    "cover": "/blogs/refinement-layer.png",
+    "readTime": "5 min read",
+    "medium": "https://write.pandeakshat.com/the-refinement-layer-audit-tune-change-c37432046f14"
+  },
+  {
+    "id": "8-evolution-layer",
+    "title": "The Evolution Layer: The Final Stage of the Solo-Social System",
+    "summary": "Unraveling, Evolving, and Transforming—Why refining your habits is no longer enough.",
+    "date": "05-12-2025",
+    "tags": [
+      "blog",
+      "write"
+    ],
+    "cover": "/blogs/evolution-layer.png",
+    "readTime": "4 min read",
+    "medium": "https://medium.com/@pandeakshat/the-evolution-layer-the-final-stage-of-the-solo-social-system-3d1be9af6b8c"
+  },
+  {
+    "id": "9-data-driven-life",
+    "title": "The Blueprint for a Data-Driven Life",
+    "summary": "Introducing the 4 Layers: Ingest, Engineer, Model, and Deploy.",
+    "date": "10-12-2025",
+    "tags": [
+      "blog",
+      "write"
+    ],
+    "cover": "/blogs/data-driven-life.png",
+    "readTime": "3 min read",
+    "medium": "https://write.pandeakshat.com/the-blueprint-for-a-data-driven-life-370fcd4a860b"
   }
 ];
 
