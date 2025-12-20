@@ -7,12 +7,8 @@ const blogs = [
     "tags": [
       "write",
       "portfolio",
-<<<<<<< HEAD
-      "Reflection"
-=======
       "Reflection",
       "Growth"
->>>>>>> 1f4ac9948e6c9818aca8e992233844e66668d413
     ],
     "cover": "/blogs/the-realignment-plan.png",
     "readTime": "4 min read",
@@ -26,12 +22,8 @@ const blogs = [
     "tags": [
       "write",
       "portfolio",
-<<<<<<< HEAD
-      "programming"
-=======
       "Programming",
       "Mindset"
->>>>>>> 1f4ac9948e6c9818aca8e992233844e66668d413
     ],
     "cover": "/blogs/the-art-of-debugging.png",
     "readTime": "10 min read",
@@ -45,13 +37,8 @@ const blogs = [
     "tags": [
       "write",
       "portfolio",
-<<<<<<< HEAD
-      "data-science",
-      "career"
-=======
-      "Freelancing",
-      "Data-Science"
->>>>>>> 1f4ac9948e6c9818aca8e992233844e66668d413
+      "Data-Science",
+      "Freelancing"
     ],
     "cover": "/blogs/freedom-with-data.png",
     "readTime": "10 min read",
@@ -65,12 +52,8 @@ const blogs = [
     "tags": [
       "write",
       "portfolio",
-<<<<<<< HEAD
-      "systems"
-=======
-      "Growth",
-      "Systems"
->>>>>>> 1f4ac9948e6c9818aca8e992233844e66668d413
+      "Systems",
+      "Growth"
     ],
     "cover": "/blogs/solo-social-leveling-system.png",
     "readTime": "9 min read",
@@ -84,13 +67,8 @@ const blogs = [
     "tags": [
       "write",
       "portfolio",
-<<<<<<< HEAD
-      "systems",
-      "habits"
-=======
-      "Habits",
-      "Systems"
->>>>>>> 1f4ac9948e6c9818aca8e992233844e66668d413
+      "Systems",
+      "Habits"
     ],
     "cover": "/blogs/execution-layer.png",
     "readTime": "6 min read",
@@ -109,19 +87,6 @@ const blogs = [
     "cover": "/blogs/reflection-layer.jpeg",
     "readTime": "6 min read",
     "medium": "https://write.pandeakshat.com/the-reflection-layer-building-a-mindful-system-for-growth-944c6978a78d"
-  },
-  {
-    "id": "7-evolution-layer",
-    "title": "The Evolution Layer: The Final Stage of the Solo-Social System",
-    "summary": "Unraveling, Evolving, and Transforming—Why refining your habits is no longer enough.",
-    "date": "05-12-2025",
-    "tags": [
-      "blog",
-      "write"
-    ],
-    "cover": "/blogs/evolution-layer.png",
-    "readTime": "4 min read",
-    "medium": "https://medium.com/@pandeakshat/the-evolution-layer-the-final-stage-of-the-solo-social-system-3d1be9af6b8c"
   },
   {
     "id": "7-refinement-layer",
