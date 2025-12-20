@@ -5,13 +5,9 @@ date: 05-11-2025
 tags:
   - write
   - portfolio
-<<<<<<< HEAD
   - Systems
   - Growth
-=======
-  - Growth
-  - Systems
->>>>>>> 1f4ac9948e6c9818aca8e992233844e66668d413
+
 cover: /blogs/solo-social-leveling-system.png
 readTime: 9 min read
 medium: https://write.pandeakshat.com/solo-social-leveling-system
