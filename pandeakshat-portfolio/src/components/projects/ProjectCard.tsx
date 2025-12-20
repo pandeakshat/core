@@ -1,12 +1,13 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
-import ReactMarkdown from "react-markdown" // 1. Import this
+import ReactMarkdown from "react-markdown"
 
 interface ProjectCardProps {
   title: string
   subtitle?: string
   href?: string
   repo?: string
+  demoUrl?: string // <--- 1. NEW PROP
   className?: string
 }
 
@@ -15,6 +16,7 @@ export function ProjectCard({
   subtitle,
   href,
   repo,
+  demoUrl, // <--- 2. DESTRUCTURE IT
   className,
 }: ProjectCardProps) {
   return (
@@ -36,15 +38,11 @@ export function ProjectCard({
         <div>
           <h3 className="text-lg font-semibold leading-snug mb-1">{title}</h3>
           
-          {/* 2. THE UPDATED SECTION */}
           {subtitle && (
             <div className="text-sm text-foreground/60 mb-3 prose prose-sm max-w-none">
               <ReactMarkdown
                 components={{
-                  // Override 'p' to avoid nested paragraph warnings and keep layout tight
                   p: ({ children }) => <span className="block">{children}</span>,
-                  
-                  // Make '**text**' stand out: Darker color + Bold
                   strong: ({ children }) => (
                     <span className="font-bold text-foreground opacity-100">
                       {children}
@@ -56,8 +54,6 @@ export function ProjectCard({
               </ReactMarkdown>
             </div>
           )}
-          {/* END UPDATED SECTION */}
-
         </div>
 
         <div className="mt-auto border-t border-border pt-3 text-center">
@@ -65,6 +61,7 @@ export function ProjectCard({
             View
           </p>
           <div className="flex justify-center gap-3">
+            {/* REPO BUTTON */}
             {repo && (
               <a
                 href={repo}
@@ -74,6 +71,19 @@ export function ProjectCard({
                 className="px-3 py-1 text-xs border border-border rounded-full hover:bg-accent/10 transition"
               >
                 Repository
+              </a>
+            )}
+
+            {/* 3. NEW DEPLOYMENT BUTTON */}
+            {demoUrl && (
+              <a
+                href={demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()} // Prevents card click
+                className="px-3 py-1 text-xs border border-primary/30 bg-primary/5 text-primary rounded-full hover:bg-primary/10 transition font-medium"
+              >
+                Live Demo
               </a>
             )}
           </div>

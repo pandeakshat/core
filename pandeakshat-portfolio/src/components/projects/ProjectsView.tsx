@@ -1,6 +1,7 @@
 import { ProjectGrid } from "@/components/projects/ProjectGrid"
 import { ProjectCard } from "@/components/projects/ProjectCard"
 import projects from "@/data/projects.json"
+import { deployments } from "@/data/deployments" // <--- 1. Import map
 
 export default function ProjectsView() {
   return (
@@ -14,6 +15,7 @@ export default function ProjectsView() {
             subtitle={p.summary}
             href={`/projects/${p.name}`}
             repo={p.url}
+            demoUrl={deployments[p.name]} // <--- 2. Pass the manual link
           />
         ))}
       </ProjectGrid>
