@@ -5,8 +5,13 @@ date: 01-11-2025
 tags:
   - write
   - portfolio
+<<<<<<< HEAD
   - Data-Science
   - Freelancing
+=======
+  - Freelancing
+  - Data-Science
+>>>>>>> 1f4ac9948e6c9818aca8e992233844e66668d413
 cover: /blogs/freedom-with-data.png
 readTime: 10 min read
 medium: https://write.pandeakshat.com/how-to-rebuild-a-data-science-career-without-starting-over-3598934c3638

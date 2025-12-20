@@ -1,9 +1,9 @@
 ---
-
-title: "Welcome — Series Summary"
-
-updated_at: "2025-11-20"
-
+title: Welcome — Series Summary
+updated_at: 2025-11-20
+tags:
+  - newsletter
+  - write
 ---
 
   

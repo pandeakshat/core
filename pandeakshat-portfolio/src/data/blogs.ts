@@ -7,7 +7,12 @@ const blogs = [
     "tags": [
       "write",
       "portfolio",
+<<<<<<< HEAD
       "Reflection"
+=======
+      "Reflection",
+      "Growth"
+>>>>>>> 1f4ac9948e6c9818aca8e992233844e66668d413
     ],
     "cover": "/blogs/the-realignment-plan.png",
     "readTime": "4 min read",
@@ -21,7 +26,12 @@ const blogs = [
     "tags": [
       "write",
       "portfolio",
+<<<<<<< HEAD
       "programming"
+=======
+      "Programming",
+      "Mindset"
+>>>>>>> 1f4ac9948e6c9818aca8e992233844e66668d413
     ],
     "cover": "/blogs/the-art-of-debugging.png",
     "readTime": "10 min read",
@@ -35,8 +45,13 @@ const blogs = [
     "tags": [
       "write",
       "portfolio",
+<<<<<<< HEAD
       "data-science",
       "career"
+=======
+      "Freelancing",
+      "Data-Science"
+>>>>>>> 1f4ac9948e6c9818aca8e992233844e66668d413
     ],
     "cover": "/blogs/freedom-with-data.png",
     "readTime": "10 min read",
@@ -50,7 +65,12 @@ const blogs = [
     "tags": [
       "write",
       "portfolio",
+<<<<<<< HEAD
       "systems"
+=======
+      "Growth",
+      "Systems"
+>>>>>>> 1f4ac9948e6c9818aca8e992233844e66668d413
     ],
     "cover": "/blogs/solo-social-leveling-system.png",
     "readTime": "9 min read",
@@ -64,12 +84,83 @@ const blogs = [
     "tags": [
       "write",
       "portfolio",
+<<<<<<< HEAD
       "systems",
       "habits"
+=======
+      "Habits",
+      "Systems"
+>>>>>>> 1f4ac9948e6c9818aca8e992233844e66668d413
     ],
     "cover": "/blogs/execution-layer.png",
     "readTime": "6 min read",
     "medium": "https://medium.com/@pandeakshat/the-execution-layer-where-identity-compiles-to-behavior-0caff7a1341d"
+  },
+  {
+    "id": "6-reflection-layer",
+    "title": "The Reflection Layer: Building a Mindful System for Growth",
+    "summary": "How journaling, gratitude, and introspection reshape your daily life.",
+    "date": "21-11-2025",
+    "tags": [
+      "write",
+      "portfolio",
+      "Reflection"
+    ],
+    "cover": "/blogs/reflection-layer.jpeg",
+    "readTime": "6 min read",
+    "medium": "https://write.pandeakshat.com/the-reflection-layer-building-a-mindful-system-for-growth-944c6978a78d"
+  },
+  {
+    "id": "7-evolution-layer",
+    "title": "The Evolution Layer: The Final Stage of the Solo-Social System",
+    "summary": "Unraveling, Evolving, and Transforming—Why refining your habits is no longer enough.",
+    "date": "05-12-2025",
+    "tags": [
+      "blog",
+      "write"
+    ],
+    "cover": "/blogs/evolution-layer.png",
+    "readTime": "4 min read",
+    "medium": "https://medium.com/@pandeakshat/the-evolution-layer-the-final-stage-of-the-solo-social-system-3d1be9af6b8c"
+  },
+  {
+    "id": "7-refinement-layer",
+    "title": "The Refinement Layer",
+    "summary": "Audit — Tune — Change",
+    "date": "26-11-2025",
+    "tags": [
+      "blog",
+      "write"
+    ],
+    "cover": "/blogs/refinement-layer.png",
+    "readTime": "5 min read",
+    "medium": "https://write.pandeakshat.com/the-refinement-layer-audit-tune-change-c37432046f14"
+  },
+  {
+    "id": "8-evolution-layer",
+    "title": "The Evolution Layer: The Final Stage of the Solo-Social System",
+    "summary": "Unraveling, Evolving, and Transforming—Why refining your habits is no longer enough.",
+    "date": "05-12-2025",
+    "tags": [
+      "blog",
+      "write"
+    ],
+    "cover": "/blogs/evolution-layer.png",
+    "readTime": "4 min read",
+    "medium": "https://medium.com/@pandeakshat/the-evolution-layer-the-final-stage-of-the-solo-social-system-3d1be9af6b8c"
+  },
+  {
+    "id": "9-data-driven-life",
+    "title": "The Blueprint for a Data-Driven Life",
+    "summary": "Introducing the 4 Layers: Ingest, Engineer, Model, and Deploy.",
+    "date": "10-12-2025",
+    "tags": [
+      "blog",
+      "write"
+    ],
+    "cover": "/blogs/data-driven-life.png",
+    "readTime": "3 min read",
+    "medium": "https://write.pandeakshat.com/the-blueprint-for-a-data-driven-life-370fcd4a860b"
   }
 ];
 
