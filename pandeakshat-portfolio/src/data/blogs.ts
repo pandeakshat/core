@@ -37,8 +37,8 @@ const blogs = [
     "tags": [
       "write",
       "portfolio",
-      "Data-Science",
-      "Freelancing"
+      "Freelancing",
+      "Data-Science"
     ],
     "cover": "/blogs/freedom-with-data.png",
     "readTime": "10 min read",
@@ -52,8 +52,8 @@ const blogs = [
     "tags": [
       "write",
       "portfolio",
-      "Systems",
-      "Growth"
+      "Growth",
+      "Systems"
     ],
     "cover": "/blogs/solo-social-leveling-system.png",
     "readTime": "9 min read",
@@ -67,8 +67,8 @@ const blogs = [
     "tags": [
       "write",
       "portfolio",
-      "Systems",
-      "Habits"
+      "Habits",
+      "Systems"
     ],
     "cover": "/blogs/execution-layer.png",
     "readTime": "6 min read",
