@@ -16,7 +16,7 @@ export function ProjectCard({
   subtitle,
   href,
   repo,
-  demoUrl, // <--- 2. DESTRUCTURE IT
+  demoUrl, 
   className,
 }: ProjectCardProps) {
   return (

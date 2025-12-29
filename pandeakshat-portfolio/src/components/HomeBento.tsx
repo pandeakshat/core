@@ -9,44 +9,88 @@ export default function HomeBento() {
   return (
     <BentoGrid>
       {/* Row 1 */}
+      
       <BentoCard
         className="lg:col-span-6 lg:row-span-0.5"
-        title="Akshat Pande"
-        subtitle="Data Scientist | Cloud & AI Engineer"
-        icon={<User />}
+        title=" "
+        subtitle=" "
       >
-
+        <img
+          src="/pandeakshat-2.jpg"
+          alt="Featured Project Preview"
+          className="rounded-lg w-full h-36 object-cover mb-3"
+        />
+        <h1 className="text-2xl font-bold text-center">Akshat Pande</h1>
+        <h2 className="text-center">DATA SCIENTIST | AI & CLOUD ENGINEER</h2>
       </BentoCard>
 
       <BentoCard
         className="lg:col-span-12 lg:row-span-1"
-        title="Profile Summary"
-        subtitle="Overview"
       >
-        <p className="text-sm leading-relaxed text-foreground/80">
-Data analyst and independent consultant transitioning into applied data science, specializing in automation and practical ML systems. Built and deployed models across churn prediction, route optimization, and medical plausibility scoring, cutting manual workloads by hours and reducing audit/validation errors by up to 80%. Focused on converting messy operational data into reliable pipelines, scalable tools, and high-accuracy models.
+        <div
+          className="flex flex-col items-center justify-center text-center">
+            <h1 className="text-center text-4xl leading-relaxed text-foreground/80">Professional Summary</h1>
+        <p className="text-md leading-relaxed text-foreground/80">
+        Applied Data Scientist and Cloud Engineer with 3+ years of experience specializing in
+        automation, practical ML systems, and scalable pipelines. Proven track record of
+        deploying models for logistics and healthcare, reducing manual workloads and audit
+        errors by up to 80%. Skilled in converting messy operational data into reliable,
+        automated workflows using Python, SQL, and Cloud (AWS/Azure) infrastructure
         </p>
+          
+          </div>
+          <br />
+
       </BentoCard>
 
-      <BentoCard
+<BentoCard
         className="lg:col-span-6 lg:row-span-2"
-        title="Core Skills"
-        subtitle="Tech Stack"
-        icon={<Cpu />}
+        title="Technical Arsenal"
+        subtitle="Core Competencies"
+        icon={<Cpu className="w-5 h-5" />}
       >
-        <div className="grid grid-cols-2 gap-2 mt-2 text-sm">
-          <span>Python (Pandas, Scikit-Learn, Streamlit )</span>
-          <span>SQL (Query Optimization, Window Functions)</span>
-          <span>Excel (Power Query, DAX, Automation)</span>
-          <span>Git & GitHub</span>
-          <span>Docker (Containerization & Deployment)</span>
-          <span>Power BI (Data Visualization & Reporting)</span>
-          <span>AWS / GCP / Azure (Deployment)</span>
-          <span>Langchain / Hugging Face (API Testing)</span>
+        <div className="flex flex-col gap-4 mt-2">
+          
+          {/* Languages & Frameworks */}
+          <div className="space-y-1">
+            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+              Languages & Frameworks
+            </p>
+            <div className="flex flex-wrap gap-2 text-sm">
+              <span className="px-2 py-1 bg-secondary/30 rounded border border-border/50">Python (Pandas, NumPy)</span>
+              <span className="px-2 py-1 bg-secondary/30 rounded border border-border/50">SQL</span>
+              <span className="px-2 py-1 bg-secondary/30 rounded border border-border/50">Streamlit</span>
+              <span className="px-2 py-1 bg-secondary/30 rounded border border-border/50">FastAPI</span>
+            </div>
+          </div>
+
+          {/* Cloud & Engineering */}
+          <div className="space-y-1">
+            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+              Cloud & Engineering
+            </p>
+            <div className="flex flex-wrap gap-2 text-sm">
+              <span className="px-2 py-1 bg-secondary/30 rounded border border-border/50">AWS & Azure</span>
+              <span className="px-2 py-1 bg-secondary/30 rounded border border-border/50">Docker</span>
+              <span className="px-2 py-1 bg-secondary/30 rounded border border-border/50">CI/CD</span>
+              <span className="px-2 py-1 bg-secondary/30 rounded border border-border/50">ETL</span>
+            </div>
+          </div>
+
+          {/* ML & Analytics */}
+          <div className="space-y-1">
+            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+              ML & Analytics
+            </p>
+            <div className="flex flex-wrap gap-2 text-sm">
+              <span className="px-2 py-1 bg-secondary/30 rounded border border-border/50">Scikit-learn</span>
+              <span className="px-2 py-1 bg-secondary/30 rounded border border-border/50">TensorFlow</span>
+              <span className="px-2 py-1 bg-secondary/30 rounded border border-border/50">Power BI</span>
+              <span className="px-2 py-1 bg-secondary/30 rounded border border-border/50">Excel</span>
+            </div>
+          </div>
+
         </div>
-        <p className="text-xs text-foreground/60 mt-4">
-          End-to-end analytics, model deployment, and habit-driven productivity systems.
-        </p>
       </BentoCard>
 
       {/* Row 2 */}
@@ -79,11 +123,10 @@ Data analyst and independent consultant transitioning into applied data science,
 
 
       {/* Row 3 */}
-      <BentoCard
+      {/* <BentoCard
         href="/projects/featured"
         className="lg:col-span-6 lg:row-span-2 bg-gradient-to-br from-primary/10 to-accent/5"
         title="Featured Project"
-        subtitle="Customer Intelligence Hub"
         icon={<Sparkles />}
       >
         <img
@@ -91,16 +134,14 @@ Data analyst and independent consultant transitioning into applied data science,
           alt="Featured Project Preview"
           className="rounded-lg w-full h-36 object-cover mb-3"
         />
-        <p className="text-sm leading-relaxed">
-          A unified analytics framework designed to transform raw customer data into measurable business intelligence. It integrates data engineering, analytics, and visualization through modular components that deliver end-to-end insight into customer behavior, value, and engagement.
-        </p>
+        <p className="text-xl text-center leading-relaxed">
+Customer Intelligence Hub        </p>
       </BentoCard>
 
       <BentoCard
         href="/blog/featured"
-        className="lg:col-span-6 lg:row-span-2 bg-gradient-to-br from-accent/10 to-card/80"
+        className="lg:col-span-6 lg:row-span-2 bg-gradient-to-br from-primary/10 to-accent/5"
         title="Featured Article"
-        subtitle="The Art of Debugging"
         icon={<NotebookPen />}
       >
         <img
@@ -108,13 +149,12 @@ Data analyst and independent consultant transitioning into applied data science,
           alt="Featured Article Preview"
           className="rounded-lg w-full h-28 object-cover mb-3"
         />
-        <p className="text-sm leading-relaxed">
-          Debugging isn’t just about fixing code — it’s about understanding yourself.
-This essay explores how the process of identifying, analyzing, and correcting errors mirrors personal growth. Through the psychology, mindset, and art of debugging, it reveals how every failure — in code or life — can teach patience, clarity, and mastery.
+        <p className="text-xl text-center leading-relaxed">
+          The Art of Debugging 
         </p>
-      </BentoCard>
+      </BentoCard> */}
 
-      <BentoCard
+      {/* <BentoCard
         className="lg:col-span-6 lg:row-span-1"
         title="Now Working On"
         subtitle="Current Focus"
@@ -124,73 +164,77 @@ This essay explores how the process of identifying, analyzing, and correcting er
           Developing <strong>Data Intelligence</strong> — a dataset augmentation and audit tool for data scientists.
           Also exploring cloud LLM deployment pipelines for enterprise workflows.
         </p>
-      </BentoCard>
+      </BentoCard> */}
 
 
-
+{/* 
     <BentoCard
         className="lg:col-span-6 lg:row-span-1 bg-gradient-to-r from-primary/10 to-accent/10 flex items-center justify-center text-center"
-        title=" "
-        subtitle="Quote of the Day"
+        title="Quote "
         >
         <p className="text-base italic text-foreground/80 leading-relaxed">
             “Every model starts as a question — and ends as a story.”
         </p>
-    </BentoCard>
+    </BentoCard> */}
 
       <BentoCard
         className="lg:col-span-6 lg:row-span-1"
-        title="Time"
-        subtitle="Live Moment"
-        icon={<Clock />}
       >
         <div className="flex items-center justify-center h-full">
-          <div className="text-center">
-            <TimeDisplay />
-            <p className="text-xs text-foreground/60 mt-2">
-              A reminder that progress happens one iteration at a time.
-            </p>
-          </div>
+                   <TimeDisplay />
+
         </div>
+
       </BentoCard>
 
-          <BentoCard
+      {/* <BentoCard
     href="/knowledge"
     className="lg:col-span-6 lg:row-span-1"
     title="Knowledge Hub"
     subtitle="Learn · Explore · Share"
     icon={<BookOpen />}
     >
-    </BentoCard>
+    </BentoCard> */}
       {/* Row 4 */}
+
+{/* --- MAIL (Networking) --- */}
       <BentoCard
         href="mailto:mail@pandeakshat.com"
-        className="lg:col-span-6"
-        title="Mail"
-        subtitle="Get in touch directly"
-        icon={<Mail />}
+        className="lg:col-span-6 flex flex-col justify-center"
+        title="Get in Touch"
+        subtitle="Networking"
+        icon={<Mail className="w-5 h-5" />}
       >
+        <p className="text-sm text-muted-foreground mt-2">
+          Open for networking, collaborations, and strategic partnerships.
+        </p>
       </BentoCard>
 
+      {/* --- HIRE (Consulting) --- */}
       <BentoCard
         href="/hire"
-        className="lg:col-span-6 lg:row-span-0.5"
-        title="Hire"
-        subtitle="Freelance & Consulting"
-        icon={<Briefcase />}
+        className="lg:col-span-6 lg:row-span-0.5 flex flex-col justify-center"
+        title="Work Together"
+        subtitle="Services"
+        icon={<Send className="w-5 h-5" />}
       >
+        <p className="text-sm text-muted-foreground mt-2">
+          Available for consultancy, contractual work, and specialized projects.
+        </p>
       </BentoCard>
 
+      {/* --- CONNECT (Socials) --- */}
       <BentoCard
         href="/connect"
-        className="lg:col-span-6"
-        title="Connect"
-        subtitle="Professional Network"
-        icon={<Link />}
+        className="lg:col-span-6 flex flex-col justify-center"
+        title="Socials"
+        subtitle="Online Presence"
+        icon={<User className="w-5 h-5" />}
       >
+        <p className="text-sm text-muted-foreground mt-2">
+          Connect via LinkedIn, Twitter, GitHub, and YouTube.
+        </p>
       </BentoCard>
-
-
 
 
     </BentoGrid>
