@@ -7,7 +7,8 @@ interface ProjectCardProps {
   subtitle?: string
   href?: string
   repo?: string
-  demoUrl?: string // <--- 1. NEW PROP
+  demoUrl?: string
+  image?: string // <--- New Image Prop
   className?: string
 }
 
@@ -16,7 +17,8 @@ export function ProjectCard({
   subtitle,
   href,
   repo,
-  demoUrl, 
+  demoUrl,
+  image,
   className,
 }: ProjectCardProps) {
   return (
@@ -34,6 +36,18 @@ export function ProjectCard({
         className
       )}
     >
+      {/* 1. Render Image if available */}
+      {image && (
+        <div className="w-full h-48 overflow-hidden border-b border-border/50">
+          <img 
+            src={image} 
+            alt={title} 
+            className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+      )}
+
       <div className="flex-1 flex flex-col justify-between p-5">
         <div>
           <h3 className="text-lg font-semibold leading-snug mb-1">{title}</h3>
@@ -61,7 +75,7 @@ export function ProjectCard({
             View
           </p>
           <div className="flex justify-center gap-3">
-            {/* REPO BUTTON */}
+            {/* Repo Button */}
             {repo && (
               <a
                 href={repo}
@@ -74,13 +88,13 @@ export function ProjectCard({
               </a>
             )}
 
-            {/* 3. NEW DEPLOYMENT BUTTON */}
+            {/* Live Demo Button */}
             {demoUrl && (
               <a
                 href={demoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()} // Prevents card click
+                onClick={(e) => e.stopPropagation()}
                 className="px-3 py-1 text-xs border border-primary/30 bg-primary/5 text-primary rounded-full hover:bg-primary/10 transition font-medium"
               >
                 Live Demo

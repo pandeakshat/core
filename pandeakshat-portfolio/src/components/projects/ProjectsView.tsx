@@ -1,21 +1,35 @@
+import * as React from "react"
 import { ProjectGrid } from "@/components/projects/ProjectGrid"
 import { ProjectCard } from "@/components/projects/ProjectCard"
-import projects from "@/data/projects.json"
-import { deployments } from "@/data/deployments" // <--- 1. Import map
 
-export default function ProjectsView() {
+// Define the Data Shape
+export interface ProjectProp {
+  title: string
+  summary: string
+  slug: string
+  repoUrl?: string
+  demoUrl?: string
+  image?: string
+}
+
+interface ProjectsViewProps {
+  projects: ProjectProp[]
+}
+
+export default function ProjectsView({ projects }: ProjectsViewProps) {
   return (
     <div className="relative w-full py-10">
       <h1 className="text-2xl font-bold text-center mb-8">Projects</h1>
       <ProjectGrid>
         {projects.map((p) => (
           <ProjectCard
-            key={p.name}
-            title={p.name.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
+            key={p.slug}
+            title={p.title}
             subtitle={p.summary}
-            href={`/projects/${p.name}`}
-            repo={p.url}
-            demoUrl={deployments[p.name]} // <--- 2. Pass the manual link
+            href={`/projects/${p.slug}`}
+            repo={p.repoUrl}
+            demoUrl={p.demoUrl}
+            image={p.image} 
           />
         ))}
       </ProjectGrid>

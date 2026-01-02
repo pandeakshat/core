@@ -1,9 +1,26 @@
+// src/components/blog/BlogView.tsx
 import { useState } from "react"
-import blogs from "@/data/blogs"
 import { BlogCard } from "./BlogCard"
 import { BlogGrid } from "./BlogGrid"
 
-export default function BlogView() {
+// 1. Define the shape of a Blog Post
+export interface BlogPostProp {
+  id: string
+  title: string
+  summary: string
+  cover?: string
+  date: string
+  tags: string[]
+  readTime: string
+  medium?: string
+}
+
+interface BlogViewProps {
+  blogs: BlogPostProp[] // <--- Receive data here
+}
+
+export default function BlogView({ blogs }: BlogViewProps) {
+  // 2. Extract unique tags dynamically from the passed data
   const allTags = Array.from(new Set(blogs.flatMap((b) => b.tags || [])))
   const [selectedTag, setSelectedTag] = useState("All")
 
@@ -16,7 +33,7 @@ export default function BlogView() {
     <div className="w-full py-8">
       <h1 className="text-3xl font-semibold mb-6 text-center">Blog Articles</h1>
 
-      {/* ─── Tag Filter ─── */}
+      {/* Tag Filter */}
       <div className="flex flex-wrap justify-center gap-2 mb-8">
         {["All", ...allTags].map((tag) => (
           <button
@@ -33,7 +50,7 @@ export default function BlogView() {
         ))}
       </div>
 
-      {/* ─── Blog Cards ─── */}
+      {/* Grid */}
       <BlogGrid>
         {filteredBlogs.map((b) => (
           <BlogCard
@@ -45,7 +62,7 @@ export default function BlogView() {
             tags={b.tags}
             readTime={b.readTime}
             medium={b.medium}
-            href={`/blog/${b.id}`}
+            href={`/blog/${b.id}`} // Uses the slug as ID
           />
         ))}
       </BlogGrid>

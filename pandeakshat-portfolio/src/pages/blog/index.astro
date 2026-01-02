@@ -1,13 +1,47 @@
 ---
-import { getCollection } from "astro:content"
-import BlogView from "../../components/blog/BlogView"
-import BackHomeButton from "../../components/common/BackHomeButton"
-import BaseLayout from "../../layouts/CenterLayout.astro"
+// src/pages/blog.astro (or index.astro inside /blog folder)
+import BaseLayout from "../../layouts/CenterLayout.astro"; // Adjust path if needed
+import BlogView from "../../components/blog/BlogView";
+import BackHomeButton from "../../components/common/BackHomeButton";
+import { contentfulClient, type BlogPost } from "../../lib/contentful";
 
-const posts = await getCollection("blog")
+// 1. Fetch Blogs
+const entries = await contentfulClient.getEntries<BlogPost>({
+  content_type: "blog",
+  order: ["-fields.date"], // Newest first
+});
+
+// 2. Transform Data
+const blogs = entries.items.map((item) => {
+  const { title, slug, summary, date, tags, readTime, mediumUrl, coverImage } = item.fields;
+
+  // Handle Image URL
+  const coverUrl = coverImage?.fields?.file?.url 
+    ? `https:${coverImage.fields.file.url}` 
+    : undefined;
+
+  // Format Date (Contentful sends YYYY-MM-DD, you want DD-MM-YYYY)
+  const dateObj = new Date(date);
+  const formattedDate = dateObj.toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric"
+  }).replace(/\//g, "-"); // Converts 01/11/2025 to 01-11-2025
+
+  return {
+    id: slug, // We use slug as the ID for links
+    title,
+    summary,
+    cover: coverUrl,
+    date: formattedDate,
+    tags: tags || [], // Ensure it's an array
+    readTime,
+    medium: mediumUrl,
+  };
+});
 ---
 
 <BaseLayout title="Blog — Akshat Pande">
-  <BlogView posts={posts} client:load />
+  <BlogView client:load blogs={blogs} />
   <BackHomeButton client:load position="top-left" />
 </BaseLayout>

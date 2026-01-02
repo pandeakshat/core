@@ -1,10 +1,38 @@
 ---
-import BackHomeButton from "../../components/common/BackHomeButton"
-import ProjectsView from "../../components/projects/ProjectsView"
-import BaseLayout from "../../layouts/CenterLayout.astro"
+import BaseLayout from "../../layouts/CenterLayout.astro";
+import BackHomeButton from "../../components/common/BackHomeButton";
+import ProjectsView from "../../components/projects/ProjectsView";
+import { contentfulClient, type Project } from "../../lib/contentful";
+
+// 1. Fetch from Contentful
+const entries = await contentfulClient.getEntries<Project>({
+  content_type: "project",
+  order: ["-fields.date"], // Sort by newest (descending)
+});
+
+// 2. Map Data & Handle Images
+const projects = entries.items.map((item) => {
+  const { title, slug, summary, repoUrl, demoUrl, coverImage } = item.fields;
+  
+  // Safe Image Extraction
+  // Contentful images are returned as Asset objects. We need 'file.url'.
+  // We also prepend 'https:' because Contentful returns '//images.ctfassets.net/...'
+  const imageUrl = coverImage?.fields?.file?.url 
+    ? `https:${coverImage.fields.file.url}` 
+    : undefined;
+
+  return {
+    title,
+    slug,
+    summary,
+    repoUrl,
+    demoUrl,
+    image: imageUrl,
+  };
+});
 ---
 
 <BaseLayout title="Projects — Akshat Pande">
-  <ProjectsView client:load />
+  <ProjectsView client:load projects={projects} />
   <BackHomeButton client:load position="top-left" />
 </BaseLayout>

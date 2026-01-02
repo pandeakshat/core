@@ -1,40 +1,53 @@
 ---
 import BaseLayout from "../../layouts/CenterLayout.astro";
-import fs from "fs";
-import path from "path";
-import { marked } from "marked";
-import projects from "../../data/projects.json";
+import { contentfulClient, type Project } from "../../lib/contentful";
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 
-// Generate paths for all projects
+// 1. Generate Paths: Fetch ALL projects so Astro knows what pages to build
 export async function getStaticPaths() {
-  return projects.map((p) => ({
-    params: { slug: p.name },
+  const entries = await contentfulClient.getEntries<Project>({
+    content_type: "project",
+  });
+
+  return entries.items.map((item) => ({
+    params: { slug: item.fields.slug },
+    props: { project: item.fields }, // Pass the whole project data to the page
   }));
 }
 
-const { slug } = Astro.params;
-const filePath = path.resolve("src/content/projects", `${slug}.md`);
+// 2. Get the data passed from getStaticPaths
+const { project } = Astro.props;
+const { title, content, coverImage } = project;
 
-let content = "";
-try {
-  content = fs.readFileSync(filePath, "utf-8");
-} catch {
-  content = `# Not Found\n\nProject **${slug}** does not have a markdown file yet.`;
-}
+// 3. Convert Contentful Rich Text to HTML
+const contentHtml = content ? documentToHtmlString(content) : "";
 
-// Convert markdown → HTML using marked
-const html = marked.parse(content);
+// 4. Handle Cover Image URL (if it exists)
+const imageUrl = coverImage?.fields?.file?.url 
+  ? `https:${coverImage.fields.file.url}` 
+  : null;
 ---
 
-<BaseLayout title={slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}>
-  <article class="prose prose-neutral dark:prose-invert max-w-3xl mx-auto py-8">
-    <div set:html={html}></div>
+<BaseLayout title={title}>
+  <article class="prose prose-neutral dark:prose-invert max-w-3xl mx-auto py-8 px-4">
+    {/* Optional: Show the cover image at the top of the article */}
+    {imageUrl && (
+      <img 
+        src={imageUrl} 
+        alt={title} 
+        class="w-full h-64 object-cover rounded-xl mb-8 shadow-sm"
+      />
+    )}
+
+    <h1 class="mb-4 text-4xl font-bold">{title}</h1>
+    
+    {/* Render the converted HTML */}
+    <div set:html={contentHtml}></div>
   </article>
 
   <div class="mt-10 flex justify-center">
-    <a href="/projects" class="rounded-full px-4 py-2 border border-border hover:bg-accent/10 transition">
+    <a href="/projects" class="rounded-full px-4 py-2 border border-border hover:bg-accent/10 transition mb-10">
       ← Back to Projects
     </a>
   </div>
 </BaseLayout>
-
