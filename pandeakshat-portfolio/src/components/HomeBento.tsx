@@ -96,27 +96,24 @@ export default function HomeBento() {
       {/* Row 2 */}
       <BentoCard
         href="/projects"
-        className="lg:col-span-6"
+        className="lg:col-span-6 items-center justify-center"
         title="Projects"
-        subtitle="Explore My Work"
         icon={<Code />}
       >
       </BentoCard>
 
       <BentoCard
         href="/blog"
-        className="lg:col-span-6"
+        className="lg:col-span-6 items-center justify-center"
         title="Blog"
-        subtitle="Read My Writings"
         icon={<NotebookPen />}
       >
       </BentoCard>
 
       <BentoCard
         href="/resume"
-        className="lg:col-span-6"
+        className="lg:col-span-6 items-center justify-center"
         title="Resume"
-        subtitle="Experience & Roles"
         icon={<Briefcase />}
       >
       </BentoCard>
@@ -137,7 +134,7 @@ export default function HomeBento() {
         <p className="text-xl text-center leading-relaxed">
 Customer Intelligence Hub        </p>
       </BentoCard>
-
+ 
       <BentoCard
         href="/blog/featured"
         className="lg:col-span-6 lg:row-span-2 bg-gradient-to-br from-primary/10 to-accent/5"
